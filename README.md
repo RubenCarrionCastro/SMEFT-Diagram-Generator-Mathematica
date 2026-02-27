@@ -20,15 +20,10 @@ $FeynArtsModelPath = Append["C:\\Users\\USER\\AppData\\Roaming\\Wolfram\\Applica
 
 Interactive Mathematica interface for generating Feynman diagrams using FeynArts and FeynCalc.
 
-## Features
-- Select number of incoming/outgoing particles
-- Categorized particle selection
-- Tree-level and 1-loop diagrams
-- Automatic rendering
-- Clean reset system
+## What does this tool do?
 
-## Requirements
-- Mathematica
-- FeynArts
-- FeynCalc
-- SMEFTsim model (installed locally)
+This interface allows the user to:
+- Select incoming and outgoing particles
+- Choose tree-level or one-loop topologies
+- Automatically generate Feynman diagrams
+- Visualize them directly in Mathematica

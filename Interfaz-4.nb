@@ -1,0 +1,1224 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     51122,       1216]
+NotebookOptionsPosition[     49930,       1190]
+NotebookOutlinePosition[     50330,       1206]
+CellTagsIndexPosition[     50287,       1203]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"$LoadAddOns", "=", 
+   RowBox[{"{", "\"\<FeynArts\>\"", "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"<<", "FeynCalc`"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"SetOptions", "[", 
+   RowBox[{"FourVector", ",", " ", 
+    RowBox[{"FeynCalcInternal", " ", "->", " ", "False"}]}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"$FeynArtsModelPath", "=", 
+    RowBox[{
+    "Append", 
+     "[", "\"\<C:\\\\Users\\\\ruben\\\\AppData\\\\Roaming\\\\Wolfram\\\\\
+Applications\\\\FeynCalc\\\\FeynArts\\\\Models\>\"", "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"--", 
+     RowBox[{"--", "Cat\[AAcute]logo"}]}], " ", 
+    RowBox[{"manual", ":", 
+     RowBox[{"ed\[IAcute]talo", " ", "a", " ", "tu", " ", 
+      RowBox[{
+       RowBox[{"gusto", "--"}], "--"}]}]}]}], "*)"}], 
+  RowBox[{
+   RowBox[{"particleCatalog", "=", 
+    RowBox[{"<|", 
+     RowBox[{
+      RowBox[{"\"\<Leptones\>\"", "->", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"F", "[", 
+           RowBox[{"2", ",", 
+            RowBox[{"{", "1", "}"}]}], "]"}], "->", "\"\<e-\>\""}], ",", 
+         RowBox[{
+          RowBox[{"-", 
+           RowBox[{"F", "[", 
+            RowBox[{"2", ",", 
+             RowBox[{"{", "1", "}"}]}], "]"}]}], "->", "\"\<e+\>\""}], ",", 
+         RowBox[{
+          RowBox[{"F", "[", 
+           RowBox[{"2", ",", 
+            RowBox[{"{", "2", "}"}]}], "]"}], "->", "\"\<\[Mu]-\>\""}], ",", 
+         RowBox[{
+          RowBox[{"-", 
+           RowBox[{"F", "[", 
+            RowBox[{"2", ",", 
+             RowBox[{"{", "2", "}"}]}], "]"}]}], "->", "\"\<\[Mu]+\>\""}], ",", 
+         RowBox[{
+          RowBox[{"F", "[", 
+           RowBox[{"2", ",", 
+            RowBox[{"{", "3", "}"}]}], "]"}], "->", "\"\<\[Tau]-\>\""}], ",", 
+         RowBox[{
+          RowBox[{"-", 
+           RowBox[{"F", "[", 
+            RowBox[{"2", ",", 
+             RowBox[{"{", "3", "}"}]}], "]"}]}], "->", "\"\<\[Tau]+\>\""}]}], 
+        "}"}]}], ",", 
+      RowBox[{"\"\<Neutrinos\>\"", "->", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"F", "[", 
+           RowBox[{"1", ",", 
+            RowBox[{"{", "1", "}"}]}], "]"}], "->", "\"\<\[Nu]e\>\""}], ",", 
+         " ", 
+         RowBox[{
+          RowBox[{"-", 
+           RowBox[{"F", "[", 
+            RowBox[{"1", ",", 
+             RowBox[{"{", "1", "}"}]}], "]"}]}], 
+          "->", "\"\<\[Nu]\:02c9e\>\""}], ",", " ", 
+         RowBox[{
+          RowBox[{"F", "[", 
+           RowBox[{"1", ",", 
+            RowBox[{"{", "2", "}"}]}], "]"}], "->", "\"\<\[Nu]\[Mu]\>\""}], ",",
+          " ", 
+         RowBox[{
+          RowBox[{"-", 
+           RowBox[{"F", "[", 
+            RowBox[{"1", ",", 
+             RowBox[{"{", "2", "}"}]}], "]"}]}], 
+          "->", "\"\<\[Nu]\:02c9\[Mu]\>\""}], ",", " ", 
+         RowBox[{
+          RowBox[{"F", "[", 
+           RowBox[{"1", ",", 
+            RowBox[{"{", "3", "}"}]}], "]"}], "->", "\"\<\[Nu]\[Tau]\>\""}], ",",
+          " ", 
+         RowBox[{
+          RowBox[{"-", 
+           RowBox[{"F", "[", 
+            RowBox[{"1", ",", 
+             RowBox[{"{", "3", "}"}]}], "]"}]}], 
+          "->", "\"\<\[Nu]\:02c9\[Tau]\>\""}]}], "}"}]}], ",", 
+      RowBox[{"\"\<Quarks\>\"", "->", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"F", "[", 
+           RowBox[{"3", ",", 
+            RowBox[{"{", "1", "}"}]}], "]"}], "->", "\"\<u\>\""}], ",", 
+         RowBox[{
+          RowBox[{"-", 
+           RowBox[{"F", "[", 
+            RowBox[{"3", ",", 
+             RowBox[{"{", "1", "}"}]}], "]"}]}], "->", "\"\<u\:0304\>\""}], ",", 
+         RowBox[{
+          RowBox[{"F", "[", 
+           RowBox[{"3", ",", 
+            RowBox[{"{", "2", "}"}]}], "]"}], "->", "\"\<c\>\""}], ",", 
+         RowBox[{
+          RowBox[{"-", 
+           RowBox[{"F", "[", 
+            RowBox[{"3", ",", 
+             RowBox[{"{", "2", "}"}]}], "]"}]}], "->", "\"\<c\:0304\>\""}], ",", 
+         RowBox[{
+          RowBox[{"F", "[", 
+           RowBox[{"4", ",", 
+            RowBox[{"{", "1", "}"}]}], "]"}], "->", "\"\<d\>\""}], ",", 
+         RowBox[{
+          RowBox[{"-", 
+           RowBox[{"F", "[", 
+            RowBox[{"4", ",", 
+             RowBox[{"{", "1", "}"}]}], "]"}]}], "->", "\"\<d\:0304\>\""}], ",", 
+         RowBox[{
+          RowBox[{"F", "[", 
+           RowBox[{"4", ",", 
+            RowBox[{"{", "2", "}"}]}], "]"}], "->", "\"\<s\>\""}], ",", 
+         RowBox[{
+          RowBox[{"-", 
+           RowBox[{"F", "[", 
+            RowBox[{"4", ",", 
+             RowBox[{"{", "2", "}"}]}], "]"}]}], "->", "\"\<s\:0304\>\""}], ",", 
+         RowBox[{
+          RowBox[{"F", "[", "30", "]"}], "->", "\"\<t\>\""}], ",", 
+         RowBox[{
+          RowBox[{"-", 
+           RowBox[{"F", "[", "30", "]"}]}], "->", "\"\<t\:0304\>\""}], ",", 
+         RowBox[{
+          RowBox[{"F", "[", "40", "]"}], "->", "\"\<b\>\""}], ",", 
+         RowBox[{
+          RowBox[{"-", 
+           RowBox[{"F", "[", "40", "]"}]}], "->", "\"\<b\:0304\>\""}]}], 
+        "}"}]}], ",", 
+      RowBox[{"\"\<Vectores\>\"", "->", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"V", "[", "1", "]"}], "->", "\"\<a\>\""}], ",", " ", 
+         RowBox[{
+          RowBox[{"V", "[", "2", "]"}], "->", "\"\<Z\>\""}], ",", " ", 
+         RowBox[{
+          RowBox[{"V", "[", "3", "]"}], "->", "\"\<W+\>\""}], ",", " ", 
+         RowBox[{
+          RowBox[{"-", 
+           RowBox[{"V", "[", "3", "]"}]}], "->", "\"\<W-\>\""}], ",", " ", 
+         RowBox[{
+          RowBox[{"V", "[", "4", "]"}], "->", "\"\<g\>\""}]}], "}"}]}], ",", 
+      RowBox[{"\"\<Escalares\>\"", "->", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"S", "[", "1", "]"}], "->", "\"\<H\>\""}], ",", 
+         RowBox[{
+          RowBox[{"S", "[", "2", "]"}], "->", "\"\<G0\>\""}], ",", " ", 
+         RowBox[{
+          RowBox[{"S", "[", "3", "]"}], "->", "\"\<G+\>\""}], ",", 
+         RowBox[{
+          RowBox[{"-", 
+           RowBox[{"S", "[", "3", "]"}]}], "->", "\"\<G-\>\""}]}], "}"}]}], ",", 
+      RowBox[{"\"\<Fantasmas\>\"", "->", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"U", "[", "1", "]"}], "->", "\"\<ghA\>\""}], ",", " ", 
+         RowBox[{
+          RowBox[{"U", "[", "2", "]"}], "->", "\"\<ghZ\>\""}], ",", " ", 
+         RowBox[{
+          RowBox[{"U", "[", "31", "]"}], "->", "\"\<ghWp\>\""}], ",", " ", 
+         RowBox[{
+          RowBox[{"U", "[", "32", "]"}], "->", "\"\<ghWm\>\""}], ",", " ", 
+         RowBox[{
+          RowBox[{"U", "[", "4", "]"}], "->", "\"\<ghG\>\""}]}], "}"}]}]}], 
+     "|>"}]}], ";"}], "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"menuRules", "[", "cat_", "]"}], ":=", 
+    RowBox[{"Prepend", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"#", "[", 
+           RowBox[{"[", "1", "]"}], "]"}], "->", 
+          RowBox[{"#", "[", 
+           RowBox[{"[", "2", "]"}], "]"}]}], ")"}], "&"}], "/@", 
+       RowBox[{"particleCatalog", "[", "cat", "]"}]}], ",", 
+      RowBox[{"\"\<\[LongDash]\>\"", "->", "None"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Men\[UAcute]", " ", "simple", " ", "y", " ", 
+     RowBox[{"robusto", ":", 
+      RowBox[{"etiqueta", " ", 
+       RowBox[{"(", "string", ")"}]}]}]}], "->", 
+    RowBox[{"valor", " ", 
+     RowBox[{"(", "campo", ")"}]}]}], "*)"}], 
+  RowBox[{
+   RowBox[{
+    RowBox[{"menuRules", "[", "cat_", "]"}], ":=", 
+    RowBox[{"Prepend", "[", 
+     RowBox[{
+      RowBox[{"particleCatalog", "[", "cat", "]"}], ",", 
+      RowBox[{"\"\<\[LongDash]\>\"", "->", "None"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{"ClearAll", "[", "DiagramUIManualCatalog", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"DiagramUIManualCatalog", "[", "]"}], ":=", 
+    RowBox[{"DynamicModule", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"(*", "modelo", "*)"}], 
+       RowBox[{
+        RowBox[{"modelName", "=", "\"\<SMEFTsimtopU3l\>\""}], ",", 
+        RowBox[{"genName", "=", "\"\<SMEFTsimtopU3l\>\""}], ",", 
+        RowBox[{"(*", 
+         RowBox[{"opciones", " ", "f\[IAcute]sicas"}], "*)"}], 
+        RowBox[{"insertion", "=", 
+         RowBox[{"{", "Particles", "}"}]}], ",", 
+        RowBox[{"loopOrder", "=", "0"}], ",", 
+        RowBox[{"(*", "proceso", "*)"}], 
+        RowBox[{"nIn", "=", "2"}], ",", 
+        RowBox[{"nOut", "=", "2"}], ",", 
+        RowBox[{"catIn", "=", "\"\<Leptones\>\""}], ",", 
+        RowBox[{"catOut", "=", "\"\<Quarks\>\""}], ",", 
+        RowBox[{"pickIn", "=", 
+         RowBox[{"ConstantArray", "[", 
+          RowBox[{"None", ",", "6"}], "]"}]}], ",", 
+        RowBox[{"pickOut", "=", 
+         RowBox[{"ConstantArray", "[", 
+          RowBox[{"None", ",", "6"}], "]"}]}], ",", 
+        RowBox[{"(*", "estado", "*)"}], 
+        RowBox[{"running", "=", "False"}], ",", 
+        RowBox[{"status", "=", "\"\<Listo.\>\""}], ",", 
+        RowBox[{"diags", "=", "None"}], ",", 
+        RowBox[{"paintImg", "=", "None"}]}], "}"}], ",", 
+      RowBox[{"Column", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Style", "[", 
+           
+           RowBox[{"\"\<Generador de diagramas (cat\[AAcute]logo manual)\>\"",
+             ",", "16", ",", "Bold"}], "]"}], ",", 
+          RowBox[{"Grid", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"\"\<Model\>\"", ",", 
+                RowBox[{"InputField", "[", 
+                 RowBox[{
+                  RowBox[{"Dynamic", "[", "modelName", "]"}], ",", "String", ",", 
+                  RowBox[{"FieldSize", "->", "22"}]}], "]"}], 
+                ",", "\"\<GenericModel\>\"", ",", 
+                RowBox[{"InputField", "[", 
+                 RowBox[{
+                  RowBox[{"Dynamic", "[", "genName", "]"}], ",", "String", ",", 
+                  RowBox[{"FieldSize", "->", "22"}]}], "]"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"\"\<InsertionLevel\>\"", ",", 
+                RowBox[{"PopupMenu", "[", 
+                 RowBox[{
+                  RowBox[{"Dynamic", "[", "insertion", "]"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"{", "Particles", "}"}], 
+                    "->", "\"\<{Particles}\>\""}], ",", 
+                    RowBox[{
+                    RowBox[{"{", "Classes", "}"}], 
+                    "->", "\"\<{Classes}\>\""}]}], "}"}]}], "]"}], 
+                ",", "\"\<LoopOrder\>\"", ",", 
+                RowBox[{"PopupMenu", "[", 
+                 RowBox[{
+                  RowBox[{"Dynamic", "[", "loopOrder", "]"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"0", "->", "\"\<0 (\[AAcute]rbol)\>\""}], ",", 
+                    RowBox[{"1", "->", "\"\<1 (1-loop)\>\""}]}], "}"}]}], 
+                 "]"}]}], "}"}]}], "}"}], ",", 
+            RowBox[{"Alignment", "->", "Left"}], ",", 
+            RowBox[{"Spacings", "->", 
+             RowBox[{"{", 
+              RowBox[{"2", ",", "1"}], "}"}]}]}], "]"}], ",", "Delimiter", ",", 
+          RowBox[{"Grid", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"\"\<# Entrantes (nIn):\>\"", ",", 
+                RowBox[{"SetterBar", "[", 
+                 RowBox[{
+                  RowBox[{"Dynamic", "[", "nIn", "]"}], ",", 
+                  RowBox[{"Range", "[", 
+                   RowBox[{"1", ",", "4"}], "]"}]}], "]"}]}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"\"\<# Salientes (nOut):\>\"", ",", 
+                RowBox[{"SetterBar", "[", 
+                 RowBox[{
+                  RowBox[{"Dynamic", "[", "nOut", "]"}], ",", 
+                  RowBox[{"Range", "[", 
+                   RowBox[{"1", ",", "6"}], "]"}]}], "]"}]}], "}"}]}], "}"}], 
+            ",", 
+            RowBox[{"Alignment", "->", "Left"}], ",", 
+            RowBox[{"Spacings", "->", 
+             RowBox[{"{", 
+              RowBox[{"2", ",", "1"}], "}"}]}]}], "]"}], ",", 
+          RowBox[{"(*", " ", 
+           RowBox[{"===", 
+            RowBox[{"==", "Entrantes"}], "===", "=="}], "*)"}], 
+          RowBox[{"Style", "[", 
+           RowBox[{"\"\<Entrantes\>\"", ",", "12", ",", "Bold"}], "]"}], ",", 
+          RowBox[{"Row", "[", 
+           RowBox[{"{", 
+            RowBox[{"\"\<Categor\[IAcute]a in: \>\"", ",", 
+             RowBox[{"PopupMenu", "[", 
+              RowBox[{
+               RowBox[{"Dynamic", "[", 
+                RowBox[{"catIn", ",", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"catIn", "=", "#"}], ";", 
+                    RowBox[{"pickIn", "=", 
+                    RowBox[{"ConstantArray", "[", 
+                    RowBox[{"None", ",", "6"}], "]"}]}]}], ")"}], "&"}]}], 
+                "]"}], ",", 
+               RowBox[{"Thread", "[", 
+                RowBox[{
+                 RowBox[{"Keys", "[", "particleCatalog", "]"}], "->", 
+                 RowBox[{"Keys", "[", "particleCatalog", "]"}]}], "]"}]}], 
+              "]"}]}], "}"}], "]"}], ",", 
+          RowBox[{"Dynamic", "[", 
+           RowBox[{
+            RowBox[{"Grid", "[", 
+             RowBox[{
+              RowBox[{"Table", "[", 
+               RowBox[{
+                RowBox[{"With", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"k", "=", "i"}], "}"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"\"\<in[\>\"", "<>", 
+                    RowBox[{"ToString", "[", "k", "]"}], "<>", "\"\<]\>\""}], 
+                    ",", 
+                    RowBox[{"PopupMenu", "[", 
+                    RowBox[{
+                    RowBox[{"Dynamic", "[", 
+                    RowBox[{"pickIn", "[", 
+                    RowBox[{"[", "k", "]"}], "]"}], "]"}], ",", 
+                    RowBox[{"menuRules", "[", "catIn", "]"}], ",", 
+                    RowBox[{"FieldSize", "->", "45"}]}], "]"}]}], "}"}]}], 
+                 "]"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"i", ",", "1", ",", "nIn"}], "}"}]}], "]"}], ",", 
+              RowBox[{"Alignment", "->", "Left"}]}], "]"}], ",", 
+            RowBox[{"TrackedSymbols", ":>", 
+             RowBox[{"{", 
+              RowBox[{"catIn", ",", "nIn", ",", "pickIn"}], "}"}]}]}], "]"}], 
+          ",", 
+          RowBox[{"Spacer", "[", "8", "]"}], ",", 
+          RowBox[{"(*", " ", 
+           RowBox[{"===", 
+            RowBox[{"==", "Salientes"}], "===", "=="}], "*)"}], 
+          RowBox[{"Style", "[", 
+           RowBox[{"\"\<Salientes\>\"", ",", "12", ",", "Bold"}], "]"}], ",", 
+          RowBox[{"Row", "[", 
+           RowBox[{"{", 
+            RowBox[{"\"\<Categor\[IAcute]a out: \>\"", ",", 
+             RowBox[{"PopupMenu", "[", 
+              RowBox[{
+               RowBox[{"Dynamic", "[", 
+                RowBox[{"catOut", ",", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"catOut", "=", "#"}], ";", 
+                    RowBox[{"pickOut", "=", 
+                    RowBox[{"ConstantArray", "[", 
+                    RowBox[{"None", ",", "6"}], "]"}]}]}], ")"}], "&"}]}], 
+                "]"}], ",", 
+               RowBox[{"Thread", "[", 
+                RowBox[{
+                 RowBox[{"Keys", "[", "particleCatalog", "]"}], "->", 
+                 RowBox[{"Keys", "[", "particleCatalog", "]"}]}], "]"}]}], 
+              "]"}]}], "}"}], "]"}], ",", 
+          RowBox[{"Dynamic", "[", 
+           RowBox[{
+            RowBox[{"Grid", "[", 
+             RowBox[{
+              RowBox[{"Table", "[", 
+               RowBox[{
+                RowBox[{"With", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"k", "=", "i"}], "}"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"\"\<out[\>\"", "<>", 
+                    RowBox[{"ToString", "[", "k", "]"}], "<>", "\"\<]\>\""}], 
+                    ",", 
+                    RowBox[{"PopupMenu", "[", 
+                    RowBox[{
+                    RowBox[{"Dynamic", "[", 
+                    RowBox[{"pickOut", "[", 
+                    RowBox[{"[", "k", "]"}], "]"}], "]"}], ",", 
+                    RowBox[{"menuRules", "[", "catOut", "]"}], ",", 
+                    RowBox[{"FieldSize", "->", "45"}]}], "]"}]}], "}"}]}], 
+                 "]"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"i", ",", "1", ",", "nOut"}], "}"}]}], "]"}], ",", 
+              RowBox[{"Alignment", "->", "Left"}]}], "]"}], ",", 
+            RowBox[{"TrackedSymbols", ":>", 
+             RowBox[{"{", 
+              RowBox[{"catOut", ",", "nOut", ",", "pickOut"}], "}"}]}]}], 
+           "]"}], ",", 
+          RowBox[{"Spacer", "[", "10", "]"}], ",", 
+          RowBox[{"Row", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Button", "[", 
+              RowBox[{
+               RowBox[{"Dynamic", "[", 
+                RowBox[{"If", "[", 
+                 RowBox[{
+                 "running", ",", "\"\<Generando\[Ellipsis]\>\"", 
+                  ",", "\"\<Generar diagramas\>\""}], "]"}], "]"}], ",", 
+               RowBox[{"If", "[", 
+                RowBox[{"running", ",", "Null", ",", 
+                 RowBox[{"Module", "[", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{
+                    "inList", ",", "outList", ",", "top", ",", "tmp", ",", 
+                    "img"}], "}"}], ",", 
+                   RowBox[{
+                    RowBox[{"running", "=", "True"}], ";", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"(*", 
+                    RowBox[{"limpia", " ", 
+                    RowBox[{"prints", "/", "messages"}], " ", "de", " ", 
+                    "FeynArts"}], "*)"}], 
+                    RowBox[{"NotebookDelete", "@", 
+                    RowBox[{"Cells", "[", 
+                    RowBox[{"CellStyle", "->", "\"\<Print\>\""}], "]"}]}], ";",
+                     "\[IndentingNewLine]", 
+                    RowBox[{"NotebookDelete", "@", 
+                    RowBox[{"Cells", "[", 
+                    RowBox[{"CellStyle", "->", "\"\<Message\>\""}], "]"}]}], ";",
+                     "\[IndentingNewLine]", 
+                    RowBox[{"(*", 
+                    RowBox[{"resetea", " ", "preview", " ", "anterior"}], 
+                    "*)"}], 
+                    RowBox[{"diags", "=", "None"}], ";", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"paintImg", "=", "None"}], ";", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"inList", "=", 
+                    RowBox[{"Take", "[", 
+                    RowBox[{"pickIn", ",", "nIn"}], "]"}]}], ";", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"outList", "=", 
+                    RowBox[{"Take", "[", 
+                    RowBox[{"pickOut", ",", "nOut"}], "]"}]}], ";", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"MemberQ", "[", 
+                    RowBox[{"inList", ",", "None"}], "]"}], "||", 
+                    RowBox[{"MemberQ", "[", 
+                    RowBox[{"outList", ",", "None"}], "]"}]}], ",", 
+                    RowBox[{
+                    RowBox[{"status", "=", 
+                    RowBox[{"Style", "[", 
+                    
+                    RowBox[{"\"\<Selecciona todas las part\[IAcute]culas en \
+in y out.\>\"", ",", "Red"}], "]"}]}], ";", "\[IndentingNewLine]", 
+                    RowBox[{"running", "=", "False"}], ";", 
+                    RowBox[{"Return", "[", "]"}], ";"}]}], "]"}], ";", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{
+                    "status", 
+                    "=", "\"\<CreateTopologies + \
+InsertFields\[Ellipsis]\>\""}], ";", "\[IndentingNewLine]", 
+                    RowBox[{"tmp", "=", 
+                    RowBox[{"TimeConstrained", "[", 
+                    RowBox[{
+                    RowBox[{"Quiet", "@", 
+                    RowBox[{"Check", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"top", "=", 
+                    RowBox[{"CreateTopologies", "[", 
+                    RowBox[{"loopOrder", ",", 
+                    RowBox[{"nIn", "->", "nOut"}]}], "]"}]}], ";", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"InsertFields", "[", 
+                    RowBox[{"top", ",", 
+                    RowBox[{"inList", "->", "outList"}], ",", 
+                    RowBox[{"InsertionLevel", "->", "insertion"}], ",", 
+                    RowBox[{"Model", "->", "modelName"}], ",", 
+                    RowBox[{"GenericModel", "->", "genName"}]}], "]"}]}], ",",
+                     "$Failed"}], "]"}]}], ",", "60", ",", "$TimedOut"}], 
+                    "]"}]}], ";", "\[IndentingNewLine]", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"tmp", "===", "$TimedOut"}], "||", 
+                    RowBox[{"tmp", "===", "$Failed"}], "||", 
+                    RowBox[{"tmp", "===", "$Aborted"}]}], ",", 
+                    RowBox[{
+                    RowBox[{"status", "=", 
+                    RowBox[{"Style", "[", 
+                    
+                    RowBox[{"\"\<Fallo/timeout generando diagramas. Revisa el \
+proceso/modelo.\>\"", ",", "Red"}], "]"}]}], ";", "\[IndentingNewLine]", 
+                    RowBox[{"running", "=", "False"}], ";", 
+                    RowBox[{"Return", "[", "]"}], ";"}]}], "]"}], ";", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"diags", "=", "tmp"}], ";", "\[IndentingNewLine]", 
+                    RowBox[{"status", "=", "\"\<Pintando\[Ellipsis]\>\""}], ";",
+                     "\[IndentingNewLine]", 
+                    RowBox[{"img", "=", 
+                    RowBox[{"TimeConstrained", "[", 
+                    RowBox[{
+                    RowBox[{"Quiet", "@", 
+                    RowBox[{"Check", "[", 
+                    RowBox[{
+                    RowBox[{"Rasterize", "[", 
+                    RowBox[{
+                    RowBox[{"Paint", "[", 
+                    RowBox[{"diags", ",", 
+                    RowBox[{"Numbering", "->", "Simple"}], ",", 
+                    RowBox[{"SheetHeader", "->", "None"}], ",", 
+                    RowBox[{"ColumnsXRows", "->", 
+                    RowBox[{"{", 
+                    RowBox[{"3", ",", "2"}], "}"}]}], ",", 
+                    RowBox[{"ImageSize", "->", 
+                    RowBox[{"{", 
+                    RowBox[{"760", ",", "420"}], "}"}]}]}], "]"}], 
+                    ",", "\"\<Image\>\""}], "]"}], ",", "$Failed"}], "]"}]}], 
+                    ",", "30", ",", "$TimedOut"}], "]"}]}], ";", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"img", "===", "$TimedOut"}], "||", 
+                    RowBox[{"img", "===", "$Failed"}]}], ",", 
+                    RowBox[{
+                    RowBox[{"paintImg", "=", "None"}], ";", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{
+                    "status", 
+                    "=", "\"\<Diagramas generados (sin preview).\>\""}]}], ",", 
+                    RowBox[{
+                    RowBox[{"paintImg", "=", "img"}], ";", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{
+                    "status", "=", "\"\<OK: diagramas generados.\>\""}]}]}], 
+                    "]"}], ";", "\[IndentingNewLine]", 
+                    RowBox[{"running", "=", "False"}], ";"}]}], "]"}]}], 
+                "]"}], ",", 
+               RowBox[{"Method", "->", "\"\<Queued\>\""}]}], "]"}], ",", 
+             RowBox[{"Spacer", "[", "10", "]"}], ",", 
+             RowBox[{"Button", "[", 
+              RowBox[{"\"\<Reset/Limpiar\>\"", ",", 
+               RowBox[{
+                RowBox[{"NotebookDelete", "@", 
+                 RowBox[{"Cells", "[", 
+                  RowBox[{"CellStyle", "->", "\"\<Print\>\""}], "]"}]}], ";", 
+                "\[IndentingNewLine]", 
+                RowBox[{"NotebookDelete", "@", 
+                 RowBox[{"Cells", "[", 
+                  RowBox[{"CellStyle", "->", "\"\<Message\>\""}], "]"}]}], ";",
+                 "\[IndentingNewLine]", 
+                RowBox[{"diags", "=", "None"}], ";", "\[IndentingNewLine]", 
+                RowBox[{"paintImg", "=", "None"}], ";", "\[IndentingNewLine]", 
+                RowBox[{"pickIn", "=", 
+                 RowBox[{"ConstantArray", "[", 
+                  RowBox[{"None", ",", "6"}], "]"}]}], ";", 
+                "\[IndentingNewLine]", 
+                RowBox[{"pickOut", "=", 
+                 RowBox[{"ConstantArray", "[", 
+                  RowBox[{"None", ",", "6"}], "]"}]}], ";", 
+                "\[IndentingNewLine]", 
+                RowBox[{"status", "=", "\"\<Listo.\>\""}], ";"}]}], "]"}]}], 
+            "}"}], "]"}], ",", "Delimiter", ",", 
+          RowBox[{"Dynamic", "[", "status", "]"}], ",", 
+          RowBox[{"Dynamic", "[", 
+           RowBox[{
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"paintImg", "===", "None"}], ",", "Nothing", ",", 
+              RowBox[{"Column", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"Style", "[", 
+                  RowBox[{"\"\<Vista previa:\>\"", ",", "12", ",", "Bold"}], 
+                  "]"}], ",", "paintImg"}], "}"}], "]"}]}], "]"}], ",", 
+            RowBox[{"TrackedSymbols", ":>", 
+             RowBox[{"{", "paintImg", "}"}]}]}], "]"}], ",", 
+          RowBox[{"(*", 
+           RowBox[{"Debug", " ", 
+            RowBox[{"\[UAcute]til", ":", 
+             RowBox[{"VERIFICAR", " ", "que", " ", "son", " ", 
+              RowBox[{
+               RowBox[{"F", "[", "...", "]"}], "/", 
+               RowBox[{"V", "[", "...", "]"}]}], " ", "y", " ", "no", " ", 
+              "strings"}]}]}], "*)"}], 
+          RowBox[{"Dynamic", "[", 
+           RowBox[{
+            RowBox[{"Column", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"Style", "[", 
+                
+                RowBox[{"\"\<(Debug) in/out internos:\>\"", ",", "11", ",", 
+                 "Italic"}], "]"}], ",", 
+               RowBox[{"\"\<in  = \>\"", "<>", 
+                RowBox[{"ToString", "[", 
+                 RowBox[{
+                  RowBox[{"Take", "[", 
+                   RowBox[{"pickIn", ",", "nIn"}], "]"}], ",", "InputForm"}], 
+                 "]"}]}], ",", 
+               RowBox[{"\"\<out = \>\"", "<>", 
+                RowBox[{"ToString", "[", 
+                 RowBox[{
+                  RowBox[{"Take", "[", 
+                   RowBox[{"pickOut", ",", "nOut"}], "]"}], ",", 
+                  "InputForm"}], "]"}]}]}], "}"}], "]"}], ",", 
+            RowBox[{"TrackedSymbols", ":>", 
+             RowBox[{"{", 
+              RowBox[{"pickIn", ",", "pickOut", ",", "nIn", ",", "nOut"}], 
+              "}"}]}]}], "]"}]}], "}"}], ",", 
+        RowBox[{"Spacings", "->", "1.2"}]}], "]"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\n", 
+ RowBox[{"DiagramUIManualCatalog", "[", "]"}]}], "Input",
+ CellChangeTimes->{{3.9812171239031296`*^9, 3.9812171370643654`*^9}, 
+   3.9812174136432323`*^9, 3.9812177921538506`*^9, 3.9812179719615517`*^9, 
+   3.9812182712885056`*^9, {3.981218803972744*^9, 3.981218820157753*^9}, 
+   3.981218850618559*^9, 3.9812188814268303`*^9, 3.981218921507658*^9, 
+   3.981218987499304*^9, 3.98121903451606*^9, {3.981219088974312*^9, 
+   3.9812192556995945`*^9}, {3.9812194541991997`*^9, 3.981219477910532*^9}, 
+   3.981219641595213*^9, 3.981219686912609*^9, {3.9812197633092365`*^9, 
+   3.981219818893614*^9}, {3.981219872222063*^9, 3.9812199693260956`*^9}, {
+   3.981220003886139*^9, 3.98122006392626*^9}, {3.9812200960223618`*^9, 
+   3.981220163830307*^9}, {3.9812202114090347`*^9, 3.981220280026436*^9}, {
+   3.9812203132545643`*^9, 3.9812203802184105`*^9}, {3.9812204145784645`*^9, 
+   3.981220418151169*^9}, {3.9812204816012497`*^9, 3.9812206586214504`*^9}, {
+   3.9812206918630886`*^9, 3.98122078233515*^9}, {3.981220817840065*^9, 
+   3.981220984519598*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"abb37261-e3cc-464b-abea-40502ce93d5c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   StyleBox["\<\"FeynCalc \"\>", "Text",
+    StripOnInput->False,
+    FontWeight->Bold], "\[InvisibleSpace]", 
+   StyleBox["\<\"10.2.0 (stable version). For help, use the \"\>", "Text",
+    StripOnInput->False], "\[InvisibleSpace]", 
+   StyleBox[
+    TagBox[
+     ButtonBox[
+      RowBox[{
+       RowBox[{"online", " ", "documentation"}], ","}],
+      BaseStyle->"Hyperlink",
+      ButtonData:>{
+        URL["https://feyncalc.github.io/referenceDev"], None},
+      ButtonNote->"https://feyncalc.github.io/referenceDev"],
+     DisplayForm], "Text",
+    StripOnInput->False], "\[InvisibleSpace]", 
+   StyleBox["\<\" visit the \"\>", "Text",
+    StripOnInput->False], "\[InvisibleSpace]", 
+   StyleBox[
+    TagBox[
+     ButtonBox["forum",
+      BaseStyle->"Hyperlink",
+      ButtonData:>{
+        URL["https://github.com/FeynCalc/feyncalc/discussions"], None},
+      ButtonNote->"https://github.com/FeynCalc/feyncalc/discussions/"],
+     DisplayForm], "Text",
+    StripOnInput->False], "\[InvisibleSpace]", 
+   StyleBox["\<\" and have a look at the supplied \"\>", "Text",
+    StripOnInput->False], "\[InvisibleSpace]", 
+   StyleBox[
+    TagBox[
+     ButtonBox[
+      RowBox[{"examples", "."}],
+      BaseStyle->"Hyperlink",
+      ButtonFunction:>SystemOpen[
+        FileNameJoin[{FeynCalc`$FeynCalcDirectory, "Examples"}]],
+      Evaluator->Automatic,
+      Method->"Preemptive"],
+     DisplayForm], "Text",
+    StripOnInput->False], "\[InvisibleSpace]", 
+   StyleBox["\<\" The PDF-version of the manual can be downloaded \"\>", 
+    "Text",
+    StripOnInput->False], "\[InvisibleSpace]", 
+   StyleBox[
+    TagBox[
+     ButtonBox[
+      RowBox[{"here", "."}],
+      BaseStyle->"Hyperlink",
+      ButtonData:>{
+        URL[
+        "https://github.com/FeynCalc/feyncalc-manual/releases/download/dev-\
+manual/FeynCalcManual.pdf"], None},
+      ButtonNote->
+       "https://github.com/FeynCalc/feyncalc-manual/releases/download/dev-\
+manual/FeynCalcManual.pdf"],
+     DisplayForm], "Text",
+    StripOnInput->False]}],
+  SequenceForm[
+   Style["FeynCalc ", "Text", Bold], 
+   Style["10.2.0 (stable version). For help, use the ", "Text"], 
+   Style[
+    DisplayForm[
+     ButtonBox["online documentation,", ButtonData :> {
+        URL["https://feyncalc.github.io/referenceDev"], None}, BaseStyle -> 
+      "Hyperlink", ButtonNote -> "https://feyncalc.github.io/referenceDev"]], 
+    "Text"], 
+   Style[" visit the ", "Text"], 
+   Style[
+    DisplayForm[
+     ButtonBox["forum", ButtonData :> {
+        URL["https://github.com/FeynCalc/feyncalc/discussions"], None}, 
+      BaseStyle -> "Hyperlink", ButtonNote -> 
+      "https://github.com/FeynCalc/feyncalc/discussions/"]], "Text"], 
+   Style[" and have a look at the supplied ", "Text"], 
+   Style[
+    DisplayForm[
+     ButtonBox[
+     "examples.", BaseStyle -> "Hyperlink", ButtonFunction :> SystemOpen[
+        FileNameJoin[{FeynCalc`$FeynCalcDirectory, "Examples"}]], Evaluator -> 
+      Automatic, Method -> "Preemptive"]], "Text"], 
+   Style[" The PDF-version of the manual can be downloaded ", "Text"], 
+   Style[
+    DisplayForm[
+     ButtonBox["here.", ButtonData :> {
+        URL[
+        "https://github.com/FeynCalc/feyncalc-manual/releases/download/dev-\
+manual/FeynCalcManual.pdf"], None}, BaseStyle -> "Hyperlink", ButtonNote -> 
+      "https://github.com/FeynCalc/feyncalc-manual/releases/download/dev-\
+manual/FeynCalcManual.pdf"]], "Text"]],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.98121973124004*^9, {3.9812197842429523`*^9, 3.981219796652483*^9}, 
+   3.98122048350963*^9, {3.981220535348732*^9, 3.981220546448883*^9}, 
+   3.981220659423975*^9, 3.981220993409216*^9, 3.981221638490032*^9},
+ CellLabel->
+  "Durante la evaluaci\[OAcute]n de \
+In[1]:=",ExpressionUUID->"26af575e-62b1-a343-bdb0-8d283d638d24"],
+
+Cell[BoxData[
+ StyleBox["\<\"If you use FeynCalc in your research, please evaluate \
+FeynCalcHowToCite[] to learn how to cite this software.\"\>", "Text",
+  StripOnInput->False]], "Print",
+ CellChangeTimes->{
+  3.98121973124004*^9, {3.9812197842429523`*^9, 3.981219796652483*^9}, 
+   3.98122048350963*^9, {3.981220535348732*^9, 3.981220546448883*^9}, 
+   3.981220659423975*^9, 3.981220993409216*^9, 3.981221638500599*^9},
+ CellLabel->
+  "Durante la evaluaci\[OAcute]n de \
+In[1]:=",ExpressionUUID->"5a2b3685-a0e4-ae4b-a6a9-ea703334ccdb"],
+
+Cell[BoxData[
+ StyleBox["\<\"Please keep in mind that the proper academic attribution of \
+our work is crucial to ensure the future development of this package!\"\>", 
+  "Text",
+  StripOnInput->False,
+  FontSlant->Italic]], "Print",
+ CellChangeTimes->{
+  3.98121973124004*^9, {3.9812197842429523`*^9, 3.981219796652483*^9}, 
+   3.98122048350963*^9, {3.981220535348732*^9, 3.981220546448883*^9}, 
+   3.981220659423975*^9, 3.981220993409216*^9, 3.981221638502142*^9},
+ CellLabel->
+  "Durante la evaluaci\[OAcute]n de \
+In[1]:=",ExpressionUUID->"194aae71-6bb0-984a-a8f5-f229ef6347e9"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   StyleBox["\<\"FeynArts \"\>", "Text",
+    StripOnInput->False,
+    FontWeight->Bold], "\[InvisibleSpace]", 
+   StyleBox["\<\"3.12 (27 Mar 2025) patched for use with FeynCalc, for \
+documentation see the \"\>", "Text",
+    StripOnInput->False], "\[InvisibleSpace]", 
+   StyleBox[
+    TagBox[
+     ButtonBox["manual",
+      BaseStyle->"Hyperlink",
+      ButtonFunction:>SystemOpen[
+        First[
+         FileNames[{"*.pdf", "*.PDF"}, 
+          FileNameJoin[{FeynCalc`$FeynArtsDirectory, "manual"}]]]],
+      Evaluator->Automatic,
+      Method->"Preemptive"],
+     DisplayForm], "Text",
+    StripOnInput->False], "\[InvisibleSpace]", 
+   StyleBox["\<\" or visit \"\>", "Text",
+    StripOnInput->False], "\[InvisibleSpace]", 
+   StyleBox[
+    TagBox[
+     ButtonBox[
+      RowBox[{"www", ".", "feynarts", ".", "de", "."}],
+      BaseStyle->"Hyperlink",
+      ButtonData:>{
+        URL["http://www.feynarts.de/"], None},
+      ButtonNote->"www.feynarts.de/"],
+     DisplayForm], "Text",
+    StripOnInput->False]}],
+  SequenceForm[
+   Style["FeynArts ", "Text", Bold], 
+   Style["3.12 (27 Mar 2025) patched for use with FeynCalc, for documentation \
+see the ", "Text"], 
+   Style[
+    DisplayForm[
+     ButtonBox[
+     "manual", BaseStyle -> "Hyperlink", ButtonFunction :> SystemOpen[
+        First[
+         FileNames[{"*.pdf", "*.PDF"}, 
+          FileNameJoin[{FeynCalc`$FeynArtsDirectory, "manual"}]]]], Evaluator -> 
+      Automatic, Method -> "Preemptive"]], "Text"], 
+   Style[" or visit ", "Text"], 
+   Style[
+    DisplayForm[
+     ButtonBox["www.feynarts.de.", ButtonData :> {
+        URL["http://www.feynarts.de/"], None}, BaseStyle -> "Hyperlink", 
+      ButtonNote -> "www.feynarts.de/"]], "Text"]],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.98121973124004*^9, {3.9812197842429523`*^9, 3.981219796652483*^9}, 
+   3.98122048350963*^9, {3.981220535348732*^9, 3.981220546448883*^9}, 
+   3.981220659423975*^9, 3.981220993409216*^9, 3.9812216385862465`*^9},
+ CellLabel->
+  "Durante la evaluaci\[OAcute]n de \
+In[1]:=",ExpressionUUID->"21c27c97-09ed-cc49-9716-d2ac037c5e8c"],
+
+Cell[BoxData[
+ StyleBox["\<\"If you use FeynArts in your research, please cite\"\>", "Text",
+  StripOnInput->False]], "Print",
+ CellChangeTimes->{
+  3.98121973124004*^9, {3.9812197842429523`*^9, 3.981219796652483*^9}, 
+   3.98122048350963*^9, {3.981220535348732*^9, 3.981220546448883*^9}, 
+   3.981220659423975*^9, 3.981220993409216*^9, 3.9812216385892525`*^9},
+ CellLabel->
+  "Durante la evaluaci\[OAcute]n de \
+In[1]:=",ExpressionUUID->"4903b626-06f3-324a-8feb-7f8bb9554cb4"],
+
+Cell[BoxData[
+ StyleBox["\<\" \[Bullet] T. Hahn, Comput. Phys. Commun., 140, 418-431, 2001, \
+arXiv:hep-ph/0012260\"\>", "Text",
+  StripOnInput->False]], "Print",
+ CellChangeTimes->{
+  3.98121973124004*^9, {3.9812197842429523`*^9, 3.981219796652483*^9}, 
+   3.98122048350963*^9, {3.981220535348732*^9, 3.981220546448883*^9}, 
+   3.981220659423975*^9, 3.981220993409216*^9, 3.981221638590248*^9},
+ CellLabel->
+  "Durante la evaluaci\[OAcute]n de \
+In[1]:=",ExpressionUUID->"ba311636-b85b-7446-9873-da3da00aee4f"]
+}, Open  ]],
+
+Cell[BoxData[
+ DynamicModuleBox[{$CellContext`modelName$$ = 
+  "SMEFTsimtopU3l", $CellContext`genName$$ = 
+  "SMEFTsimtopU3l", $CellContext`insertion$$ = {
+  FeynArts`Particles}, $CellContext`loopOrder$$ = 0, $CellContext`nIn$$ = 
+  2, $CellContext`nOut$$ = 2, $CellContext`catIn$$ = 
+  "Leptones", $CellContext`catOut$$ = "Quarks", $CellContext`pickIn$$ = {
+  None, None, None, None, None, None}, $CellContext`pickOut$$ = {
+  None, None, None, None, None, None}, $CellContext`running$$ = 
+  False, $CellContext`status$$ = "Listo.", $CellContext`diags$$ = 
+  None, $CellContext`paintImg$$ = None}, 
+  TagBox[GridBox[{
+     {
+      StyleBox["\<\"Generador de diagramas (cat\[AAcute]logo manual)\"\>",
+       StripOnInput->False,
+       FontSize->16,
+       FontWeight->Bold]},
+     {
+      TagBox[GridBox[{
+         {"\<\"Model\"\>", 
+          InputFieldBox[Dynamic[$CellContext`modelName$$], String,
+           FieldSize->22], "\<\"GenericModel\"\>", 
+          InputFieldBox[Dynamic[$CellContext`genName$$], String,
+           FieldSize->22]},
+         {"\<\"InsertionLevel\"\>", 
+          
+          PopupMenuBox[Dynamic[$CellContext`insertion$$], {{
+           FeynArts`Particles}->"\<\"{Particles}\"\>", {
+           FeynArts`Classes}->"\<\"{Classes}\"\>"}], "\<\"LoopOrder\"\>", 
+          
+          PopupMenuBox[Dynamic[$CellContext`loopOrder$$], {
+           0->"\<\"0 (\[AAcute]rbol)\"\>", 1->"\<\"1 (1-loop)\"\>"}]}
+        },
+        AutoDelete->False,
+        GridBoxAlignment->{"Columns" -> {{Left}}},
+        GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+        GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{1}}}],
+       "Grid"]},
+     {"Delimiter"},
+     {
+      TagBox[GridBox[{
+         {"\<\"# Entrantes (nIn):\"\>", 
+          InterpretationBox[
+           StyleBox[GridBox[{
+              {
+               SetterBox[Dynamic[$CellContext`nIn$$], {1}, "1"], 
+               SetterBox[Dynamic[$CellContext`nIn$$], {2}, "2"], 
+               SetterBox[Dynamic[$CellContext`nIn$$], {3}, "3"], 
+               SetterBox[Dynamic[$CellContext`nIn$$], {4}, "4"]}
+             },
+             BaselinePosition->{1, 1},
+             GridBoxSpacings->{"Columns" -> {
+                 Offset[0.27999999999999997`], {
+                  Offset[0.]}, 
+                 Offset[0.27999999999999997`]}, "Rows" -> {
+                 Offset[0.2], {
+                  Offset[0.4]}, 
+                 Offset[0.2]}}],
+            Deployed->True],
+           SetterBar[
+            Dynamic[$CellContext`nIn$$], {1, 2, 3, 4}]]},
+         {"\<\"# Salientes (nOut):\"\>", 
+          InterpretationBox[
+           StyleBox[GridBox[{
+              {
+               SetterBox[Dynamic[$CellContext`nOut$$], {1}, "1"], 
+               SetterBox[Dynamic[$CellContext`nOut$$], {2}, "2"], 
+               SetterBox[Dynamic[$CellContext`nOut$$], {3}, "3"], 
+               SetterBox[Dynamic[$CellContext`nOut$$], {4}, "4"], 
+               SetterBox[Dynamic[$CellContext`nOut$$], {5}, "5"], 
+               SetterBox[Dynamic[$CellContext`nOut$$], {6}, "6"]}
+             },
+             BaselinePosition->{1, 1},
+             GridBoxSpacings->{"Columns" -> {
+                 Offset[0.27999999999999997`], {
+                  Offset[0.]}, 
+                 Offset[0.27999999999999997`]}, "Rows" -> {
+                 Offset[0.2], {
+                  Offset[0.4]}, 
+                 Offset[0.2]}}],
+            Deployed->True],
+           SetterBar[
+            Dynamic[$CellContext`nOut$$], {1, 2, 3, 4, 5, 6}]]}
+        },
+        AutoDelete->False,
+        GridBoxAlignment->{"Columns" -> {{Left}}},
+        GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+        GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{1}}}],
+       "Grid"]},
+     {
+      StyleBox["\<\"Entrantes\"\>",
+       StripOnInput->False,
+       FontSize->12,
+       FontWeight->Bold]},
+     {
+      TemplateBox[{"\"Categor\[IAcute]a in: \"", 
+        PopupMenuBox[
+         Dynamic[$CellContext`catIn$$, ($CellContext`catIn$$ = #; \
+$CellContext`pickIn$$ = ConstantArray[None, 6])& ], {
+         "Leptones" -> "\"Leptones\"", "Neutrinos" -> "\"Neutrinos\"", 
+          "Quarks" -> "\"Quarks\"", "Vectores" -> "\"Vectores\"", "Escalares" -> 
+          "\"Escalares\"", "Fantasmas" -> "\"Fantasmas\""}]},
+       "RowDefault"]},
+     {
+      DynamicBox[ToBoxes[
+        Grid[
+         Table[
+          
+          With[{$CellContext`k$ = $CellContext`i}, {
+           "in[" <> ToString[$CellContext`k$] <> "]", 
+            PopupMenu[
+             Dynamic[
+              Part[$CellContext`pickIn$$, $CellContext`k$]], 
+             $CellContext`menuRules[$CellContext`catIn$$], FieldSize -> 
+             45]}], {$CellContext`i, 1, $CellContext`nIn$$}], Alignment -> 
+         Left], StandardForm],
+       ImageSizeCache->{
+        481.57207198143004`, {27.110009660501966`, 32.84194346449804}},
+       TrackedSymbols:>{$CellContext`catIn$$, $CellContext`nIn$$, \
+$CellContext`pickIn$$}]},
+     {
+      TemplateBox[{8},
+       "Spacer1"]},
+     {
+      StyleBox["\<\"Salientes\"\>",
+       StripOnInput->False,
+       FontSize->12,
+       FontWeight->Bold]},
+     {
+      TemplateBox[{"\"Categor\[IAcute]a out: \"", 
+        PopupMenuBox[
+         Dynamic[$CellContext`catOut$$, ($CellContext`catOut$$ = #; \
+$CellContext`pickOut$$ = ConstantArray[None, 6])& ], {
+         "Leptones" -> "\"Leptones\"", "Neutrinos" -> "\"Neutrinos\"", 
+          "Quarks" -> "\"Quarks\"", "Vectores" -> "\"Vectores\"", "Escalares" -> 
+          "\"Escalares\"", "Fantasmas" -> "\"Fantasmas\""}]},
+       "RowDefault"]},
+     {
+      DynamicBox[ToBoxes[
+        Grid[
+         Table[
+          
+          With[{$CellContext`k$ = $CellContext`i}, {
+           "out[" <> ToString[$CellContext`k$] <> "]", 
+            PopupMenu[
+             Dynamic[
+              Part[$CellContext`pickOut$$, $CellContext`k$]], 
+             $CellContext`menuRules[$CellContext`catOut$$], FieldSize -> 
+             45]}], {$CellContext`i, 1, $CellContext`nOut$$}], Alignment -> 
+         Left], StandardForm],
+       ImageSizeCache->{
+        488.7195331573486, {27.110009660501966`, 32.84194346449804}},
+       TrackedSymbols:>{$CellContext`catOut$$, $CellContext`nOut$$, \
+$CellContext`pickOut$$}]},
+     {
+      TemplateBox[{10},
+       "Spacer1"]},
+     {
+      TemplateBox[{
+        ButtonBox[
+         DynamicBox[
+          ToBoxes[
+           
+           If[$CellContext`running$$, "Generando\[Ellipsis]", 
+            "Generar diagramas"], StandardForm]], ButtonFunction :> 
+         If[$CellContext`running$$, Null, 
+           
+           Module[{$CellContext`inList$, $CellContext`outList$, \
+$CellContext`top$, $CellContext`tmp$, $CellContext`img$}, \
+$CellContext`running$$ = True; NotebookDelete[
+              Cells[CellStyle -> "Print"]]; NotebookDelete[
+              Cells[CellStyle -> "Message"]]; $CellContext`diags$$ = 
+             None; $CellContext`paintImg$$ = None; $CellContext`inList$ = 
+             Take[$CellContext`pickIn$$, $CellContext`nIn$$]; \
+$CellContext`outList$ = Take[$CellContext`pickOut$$, $CellContext`nOut$$]; If[
+              Or[
+               MemberQ[$CellContext`inList$, None], 
+               MemberQ[$CellContext`outList$, None]], $CellContext`status$$ = 
+               Style["Selecciona todas las part\[IAcute]culas en in y out.", 
+                 Red]; $CellContext`running$$ = False; Return[]; 
+              Null]; $CellContext`status$$ = 
+             "CreateTopologies + InsertFields\[Ellipsis]"; $CellContext`tmp$ = 
+             TimeConstrained[
+               Quiet[
+                
+                Check[$CellContext`top$ = 
+                  FeynArts`CreateTopologies[$CellContext`loopOrder$$, \
+$CellContext`nIn$$ -> $CellContext`nOut$$]; 
+                 FeynArts`InsertFields[$CellContext`top$, \
+$CellContext`inList$ -> $CellContext`outList$, 
+                   FeynArts`InsertionLevel -> $CellContext`insertion$$, 
+                   FeynArts`Model -> $CellContext`modelName$$, 
+                   FeynArts`GenericModel -> $CellContext`genName$$], \
+$Failed]], 60, $TimedOut]; If[
+              
+              Or[$CellContext`tmp$ === $TimedOut, $CellContext`tmp$ === \
+$Failed, $CellContext`tmp$ === $Aborted], $CellContext`status$$ = 
+               Style["Fallo/timeout generando diagramas. Revisa el \
+proceso/modelo.", Red]; $CellContext`running$$ = False; Return[]; 
+              Null]; $CellContext`diags$$ = $CellContext`tmp$; \
+$CellContext`status$$ = "Pintando\[Ellipsis]"; $CellContext`img$ = 
+             TimeConstrained[
+               Quiet[
+                Check[
+                 Rasterize[
+                  
+                  FeynArts`Paint[$CellContext`diags$$, FeynArts`Numbering -> 
+                   FeynArts`Simple, FeynArts`SheetHeader -> None, 
+                   FeynArts`ColumnsXRows -> {3, 2}, ImageSize -> {760, 420}], 
+                  "Image"], $Failed]], 30, $TimedOut]; If[
+              
+              Or[$CellContext`img$ === $TimedOut, $CellContext`img$ === \
+$Failed], $CellContext`paintImg$$ = None; $CellContext`status$$ = 
+               "Diagramas generados (sin preview).", $CellContext`paintImg$$ = \
+$CellContext`img$; $CellContext`status$$ = 
+               "OK: diagramas generados."]; $CellContext`running$$ = False; 
+            Null]], Method -> "Queued", Appearance -> Automatic, Evaluator -> 
+         Automatic], 
+        TemplateBox[{10}, "Spacer1"], 
+        ButtonBox["\"Reset/Limpiar\"", ButtonFunction :> (NotebookDelete[
+            Cells[CellStyle -> "Print"]]; NotebookDelete[
+            Cells[CellStyle -> "Message"]]; $CellContext`diags$$ = 
+           None; $CellContext`paintImg$$ = None; $CellContext`pickIn$$ = 
+           ConstantArray[None, 6]; $CellContext`pickOut$$ = 
+           ConstantArray[None, 6]; $CellContext`status$$ = "Listo."; Null), 
+         Appearance -> Automatic, Evaluator -> Automatic, Method -> 
+         "Preemptive"]},
+       "RowDefault"]},
+     {"Delimiter"},
+     {
+      DynamicBox[ToBoxes[$CellContext`status$$, StandardForm],
+       ImageSizeCache->{
+        42.884767055511475`, {0.11425781669095159`, 9.045410488033667}}]},
+     {
+      DynamicBox[ToBoxes[
+        If[$CellContext`paintImg$$ === None, Nothing, 
+         Column[{
+           Style["Vista previa:", 12, Bold], $CellContext`paintImg$$}]], 
+        StandardForm],
+       ImageSizeCache->{
+        50.032228231430054`, {2.6660157227888703`, 9.045410488033667}},
+       TrackedSymbols:>{$CellContext`paintImg$$}]},
+     {
+      DynamicBox[ToBoxes[
+        Column[{
+          Style["(Debug) in/out internos:", 11, Italic], "in  = " <> ToString[
+            Take[$CellContext`pickIn$$, $CellContext`nIn$$], InputForm], 
+          "out = " <> ToString[
+            Take[$CellContext`pickOut$$, $CellContext`nOut$$], InputForm]}], 
+        StandardForm],
+       ImageSizeCache->{
+        146.80811619758606`, {19.78691459754482, 25.51884840154089}},
+       TrackedSymbols:>{$CellContext`pickIn$$, $CellContext`pickOut$$, \
+$CellContext`nIn$$, $CellContext`nOut$$}]}
+    },
+    DefaultBaseStyle->"Column",
+    GridBoxAlignment->{"Columns" -> {{Left}}},
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+    GridBoxSpacings->{"Columns" -> {{Automatic}}, "Rows" -> {{1.2}}}],
+   "Column"],
+  DynamicModuleValues:>{}]], "Output",
+ CellChangeTimes->{
+  3.981217143565836*^9, 3.9812174147594013`*^9, {3.9812177934998035`*^9, 
+   3.9812178225593376`*^9}, 3.981217973002922*^9, 3.9812182725067825`*^9, {
+   3.9812188325205708`*^9, 3.9812188824057407`*^9}, 3.981218922510334*^9, 
+   3.981218988508396*^9, 3.9812190353551655`*^9, 3.9812190971116505`*^9, 
+   3.98121915635627*^9, 3.981219256458929*^9, 3.9812194790205154`*^9, 
+   3.981219688076149*^9, {3.981219784243948*^9, 3.9812197966534805`*^9}, 
+   3.9812204835106297`*^9, {3.9812205353497314`*^9, 3.9812205464498844`*^9}, 
+   3.9812206594249725`*^9, 3.9812209934102154`*^9, 3.9812216386324444`*^9},
+ CellLabel->"Out[10]=",ExpressionUUID->"d254c68c-1c25-c045-9d10-a4859e3b1781"]
+}, Open  ]],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{{3.9812178034421444`*^9, 
+  3.9812178152724476`*^9}},ExpressionUUID->"c2561e82-3f4a-fc47-8085-\
+38b671f6b222"]
+},
+WindowSize->{1428, 735.75},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"14.3 para Microsoft Windows (64-bit) (July 8, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"a45b924c-c5ca-a243-a88c-c3d907253aed"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 28975, 675, 1270, "Input",ExpressionUUID->"abb37261-e3cc-464b-abea-40502ce93d5c"],
+Cell[CellGroupData[{
+Cell[29576, 701, 3828, 99, 26, "Print",ExpressionUUID->"26af575e-62b1-a343-bdb0-8d283d638d24"],
+Cell[33407, 802, 537, 10, 26, "Print",ExpressionUUID->"5a2b3685-a0e4-ae4b-a6a9-ea703334ccdb"],
+Cell[33947, 814, 581, 12, 26, "Print",ExpressionUUID->"194aae71-6bb0-984a-a8f5-f229ef6347e9"],
+Cell[34531, 828, 2137, 58, 26, "Print",ExpressionUUID->"21c27c97-09ed-cc49-9716-d2ac037c5e8c"],
+Cell[36671, 888, 477, 9, 26, "Print",ExpressionUUID->"4903b626-06f3-324a-8feb-7f8bb9554cb4"],
+Cell[37151, 899, 511, 10, 26, "Print",ExpressionUUID->"ba311636-b85b-7446-9873-da3da00aee4f"]
+}, Open  ]],
+Cell[37677, 912, 12059, 270, 752, "Output",ExpressionUUID->"d254c68c-1c25-c045-9d10-a4859e3b1781"]
+}, Open  ]],
+Cell[49751, 1185, 175, 3, 47, "Input",ExpressionUUID->"c2561e82-3f4a-fc47-8085-38b671f6b222"]
+}
+]
+*)
+

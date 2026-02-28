@@ -18,7 +18,7 @@ $FeynArtsModelPath = Append["C:\\Users\\USER\\AppData\\Roaming\\Wolfram\\Applica
 
 # SMEFT Diagram Generator
 
-Interactive Mathematica interface for generating Feynman diagrams using FeynArts and FeynCalc.
+Interactive Mathematica interface for generating Feynman diagrams using FeynArts and FeynCalc. Just added amplitude calculations!
 
 ## What does this tool do?
 

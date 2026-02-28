@@ -6,9 +6,9 @@ The model is **not included** in this repository.
 
 Users must have:
 
-- FeynArts installed
-- FeynCalc installed
-- The SMEFTsimtopU3l model properly installed locally
+- FeynArts installed.
+- FeynCalc installed.
+- The SMEFTsimtopU3l model properly installed locally.
 
 Additionally, the path to the FeynArts model directory must be adapted in the code.  
 In particular, the following line:

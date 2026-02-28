@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     51122,       1216]
-NotebookOptionsPosition[     49930,       1190]
-NotebookOutlinePosition[     50330,       1206]
-CellTagsIndexPosition[     50287,       1203]
+NotebookDataLength[     74376,       1611]
+NotebookOptionsPosition[     73496,       1590]
+NotebookOutlinePosition[     73897,       1606]
+CellTagsIndexPosition[     73854,       1603]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -42,11 +42,11 @@ Applications\\\\FeynCalc\\\\FeynArts\\\\Models\>\"", "]"}]}], ";"}],
   RowBox[{"(*", 
    RowBox[{
     RowBox[{"--", 
-     RowBox[{"--", "Cat\[AAcute]logo"}]}], " ", 
-    RowBox[{"manual", ":", 
-     RowBox[{"ed\[IAcute]talo", " ", "a", " ", "tu", " ", 
-      RowBox[{
-       RowBox[{"gusto", "--"}], "--"}]}]}]}], "*)"}], 
+     RowBox[{"--", "Cat\[AAcute]logo"}]}], " ", "de", " ", 
+    "part\[IAcute]culas", " ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", "manual", ")"}], "--"}], "--"}]}], "*)"}], 
   RowBox[{
    RowBox[{"particleCatalog", "=", 
     RowBox[{"<|", 
@@ -207,7 +207,7 @@ Applications\\\\FeynCalc\\\\FeynArts\\\\Models\>\"", "]"}]}], ";"}],
           RowBox[{"U", "[", "32", "]"}], "->", "\"\<ghWm\>\""}], ",", " ", 
          RowBox[{
           RowBox[{"U", "[", "4", "]"}], "->", "\"\<ghG\>\""}]}], "}"}]}]}], 
-     "|>"}]}], ";"}], "\[IndentingNewLine]"}], "\n", 
+     "|>"}]}], ";"}], "\n"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{
@@ -226,14 +226,6 @@ Applications\\\\FeynCalc\\\\FeynArts\\\\Models\>\"", "]"}]}], ";"}],
       RowBox[{"\"\<\[LongDash]\>\"", "->", "None"}]}], "]"}]}], ";"}], 
   "\[IndentingNewLine]"}], "\n", 
  RowBox[{
-  RowBox[{"(*", 
-   RowBox[{
-    RowBox[{"Men\[UAcute]", " ", "simple", " ", "y", " ", 
-     RowBox[{"robusto", ":", 
-      RowBox[{"etiqueta", " ", 
-       RowBox[{"(", "string", ")"}]}]}]}], "->", 
-    RowBox[{"valor", " ", 
-     RowBox[{"(", "campo", ")"}]}]}], "*)"}], 
   RowBox[{
    RowBox[{
     RowBox[{"menuRules", "[", "cat_", "]"}], ":=", 
@@ -243,24 +235,82 @@ Applications\\\\FeynCalc\\\\FeynArts\\\\Models\>\"", "]"}]}], ";"}],
       RowBox[{"\"\<\[LongDash]\>\"", "->", "None"}]}], "]"}]}], ";"}], 
   "\[IndentingNewLine]"}], "\n", 
  RowBox[{
-  RowBox[{"ClearAll", "[", "DiagramUIManualCatalog", "]"}], ";"}], "\n", 
+  RowBox[{
+   RowBox[{"ClearAll", "[", "DiagramUIManualCatalog", "]"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ClearAll", "[", "WithPrintCapture", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"SetAttributes", "[", 
+   RowBox[{"WithPrintCapture", ",", "HoldFirst"}], "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"WithPrintCapture", "[", "expr_", "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"res", ",", "prints"}], "}"}], ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"res", ",", "prints"}], "}"}], "=", 
+        RowBox[{"Reap", "[", 
+         RowBox[{
+          RowBox[{"Block", "[", 
+           RowBox[{
+            RowBox[{"{", "Print", "}"}], ",", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Print", "[", "x___", "]"}], ":=", 
+              RowBox[{"Sow", "[", 
+               RowBox[{
+                RowBox[{"Row", "[", 
+                 RowBox[{"{", "x", "}"}], "]"}], ",", "\"\<prints\>\""}], 
+               "]"}]}], ";", "expr"}]}], "]"}], ",", "\"\<prints\>\""}], 
+         "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"res", ",", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Length", "[", "prints", "]"}], ">=", "2"}], ",", 
+           RowBox[{"prints", "[", 
+            RowBox[{"[", 
+             RowBox[{"2", ",", "1"}], "]"}], "]"}], ",", 
+           RowBox[{"{", "}"}]}], "]"}]}], "}"}]}]}], "]"}]}], ";"}], "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ClearAll", "[", "quietEval", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"SetAttributes", "[", 
+   RowBox[{"quietEval", ",", "HoldFirst"}], "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"quietEval", "[", "expr_", "]"}], ":=", 
+    RowBox[{"Quiet", "@", 
+     RowBox[{"Check", "[", 
+      RowBox[{"expr", ",", "$Failed"}], "]"}]}]}], ";"}], 
+  "\[IndentingNewLine]", "\n"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{
     RowBox[{"DiagramUIManualCatalog", "[", "]"}], ":=", 
     RowBox[{"DynamicModule", "[", 
      RowBox[{
-      RowBox[{"{", 
-       RowBox[{"(*", "modelo", "*)"}], 
+      RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{"(*", "modelo", "*)"}], "\[IndentingNewLine]", 
        RowBox[{
         RowBox[{"modelName", "=", "\"\<SMEFTsimtopU3l\>\""}], ",", 
         RowBox[{"genName", "=", "\"\<SMEFTsimtopU3l\>\""}], ",", 
+        "\[IndentingNewLine]", 
         RowBox[{"(*", 
          RowBox[{"opciones", " ", "f\[IAcute]sicas"}], "*)"}], 
+        "\[IndentingNewLine]", 
         RowBox[{"insertion", "=", 
          RowBox[{"{", "Particles", "}"}]}], ",", 
-        RowBox[{"loopOrder", "=", "0"}], ",", 
-        RowBox[{"(*", "proceso", "*)"}], 
+        RowBox[{"loopOrder", "=", "0"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"(*", "proceso", "*)"}], "\[IndentingNewLine]", 
         RowBox[{"nIn", "=", "2"}], ",", 
         RowBox[{"nOut", "=", "2"}], ",", 
         RowBox[{"catIn", "=", "\"\<Leptones\>\""}], ",", 
@@ -270,21 +320,37 @@ Applications\\\\FeynCalc\\\\FeynArts\\\\Models\>\"", "]"}]}], ";"}],
           RowBox[{"None", ",", "6"}], "]"}]}], ",", 
         RowBox[{"pickOut", "=", 
          RowBox[{"ConstantArray", "[", 
-          RowBox[{"None", ",", "6"}], "]"}]}], ",", 
-        RowBox[{"(*", "estado", "*)"}], 
+          RowBox[{"None", ",", "6"}], "]"}]}], ",", "\[IndentingNewLine]", 
+        RowBox[{"(*", "estado", "*)"}], "\[IndentingNewLine]", 
         RowBox[{"running", "=", "False"}], ",", 
-        RowBox[{"status", "=", "\"\<Listo.\>\""}], ",", 
+        RowBox[{"statusDiag", "=", "\"\<Listo.\>\""}], ",", 
+        RowBox[{"statusAmp", "=", "\"\<Listo.\>\""}], ",", 
+        RowBox[{"logDiags", "=", 
+         RowBox[{"{", "}"}]}], ",", "\[IndentingNewLine]", 
+        RowBox[{"(*", "diagramas", "*)"}], "\[IndentingNewLine]", 
         RowBox[{"diags", "=", "None"}], ",", 
-        RowBox[{"paintImg", "=", "None"}]}], "}"}], ",", 
+        RowBox[{"paintImg", "=", "None"}], ",", 
+        RowBox[{"paintG", "=", "None"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"(*", "amplitud", "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"ampFA", "=", "None"}], ",", 
+        RowBox[{"ampFC", "=", "None"}], ",", 
+        RowBox[{"showAmp", "=", "False"}]}], "}"}], ",", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
       RowBox[{"Column", "[", 
        RowBox[{
-        RowBox[{"{", 
+        RowBox[{"{", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         RowBox[{"(*", " ", 
+          RowBox[{
+           RowBox[{"===", "===", "===", "===", "===", "===", "===", " ", 
+            RowBox[{"BLOQUE", " ", "1"}]}], ":", " ", 
+           RowBox[{
+           "DIAGRAMAS", " ", "===", "===", "===", "===", "===", "===", 
+            "==="}]}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
          RowBox[{
           RowBox[{"Style", "[", 
-           
-           RowBox[{"\"\<Generador de diagramas (cat\[AAcute]logo manual)\>\"",
-             ",", "16", ",", "Bold"}], "]"}], ",", 
-          RowBox[{"Grid", "[", 
+           RowBox[{"\"\<Generador de diagramas\>\"", ",", "16", ",", "Bold"}],
+            "]"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"Grid", "[", "\[IndentingNewLine]", 
            RowBox[{
             RowBox[{"{", 
              RowBox[{
@@ -324,8 +390,10 @@ Applications\\\\FeynCalc\\\\FeynArts\\\\Models\>\"", "]"}]}], ";"}],
             RowBox[{"Alignment", "->", "Left"}], ",", 
             RowBox[{"Spacings", "->", 
              RowBox[{"{", 
-              RowBox[{"2", ",", "1"}], "}"}]}]}], "]"}], ",", "Delimiter", ",", 
-          RowBox[{"Grid", "[", 
+              RowBox[{"2", ",", "1"}], "}"}]}]}], "\[IndentingNewLine]", 
+           "]"}], ",", "\[IndentingNewLine]", "Delimiter", ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Grid", "[", "\[IndentingNewLine]", 
            RowBox[{
             RowBox[{"{", 
              RowBox[{
@@ -347,13 +415,16 @@ Applications\\\\FeynCalc\\\\FeynArts\\\\Models\>\"", "]"}]}], ";"}],
             RowBox[{"Alignment", "->", "Left"}], ",", 
             RowBox[{"Spacings", "->", 
              RowBox[{"{", 
-              RowBox[{"2", ",", "1"}], "}"}]}]}], "]"}], ",", 
+              RowBox[{"2", ",", "1"}], "}"}]}]}], "\[IndentingNewLine]", 
+           "]"}], ",", "\[IndentingNewLine]", 
           RowBox[{"(*", " ", 
            RowBox[{"===", 
             RowBox[{"==", "Entrantes"}], "===", "=="}], "*)"}], 
+          "\[IndentingNewLine]", 
           RowBox[{"Style", "[", 
            RowBox[{"\"\<Entrantes\>\"", ",", "12", ",", "Bold"}], "]"}], ",", 
-          RowBox[{"Row", "[", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Row", "[", "\[IndentingNewLine]", 
            RowBox[{"{", 
             RowBox[{"\"\<Categor\[IAcute]a in: \>\"", ",", 
              RowBox[{"PopupMenu", "[", 
@@ -372,10 +443,11 @@ Applications\\\\FeynCalc\\\\FeynArts\\\\Models\>\"", "]"}]}], ";"}],
                 RowBox[{
                  RowBox[{"Keys", "[", "particleCatalog", "]"}], "->", 
                  RowBox[{"Keys", "[", "particleCatalog", "]"}]}], "]"}]}], 
-              "]"}]}], "}"}], "]"}], ",", 
-          RowBox[{"Dynamic", "[", 
+              "]"}]}], "}"}], "\[IndentingNewLine]", "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Dynamic", "[", "\[IndentingNewLine]", 
            RowBox[{
-            RowBox[{"Grid", "[", 
+            RowBox[{"Grid", "[", "\[IndentingNewLine]", 
              RowBox[{
               RowBox[{"Table", "[", 
                RowBox[{
@@ -398,18 +470,21 @@ Applications\\\\FeynCalc\\\\FeynArts\\\\Models\>\"", "]"}]}], ";"}],
                  "]"}], ",", 
                 RowBox[{"{", 
                  RowBox[{"i", ",", "1", ",", "nIn"}], "}"}]}], "]"}], ",", 
-              RowBox[{"Alignment", "->", "Left"}]}], "]"}], ",", 
+              RowBox[{"Alignment", "->", "Left"}]}], "\[IndentingNewLine]", 
+             "]"}], ",", "\[IndentingNewLine]", 
             RowBox[{"TrackedSymbols", ":>", 
              RowBox[{"{", 
-              RowBox[{"catIn", ",", "nIn", ",", "pickIn"}], "}"}]}]}], "]"}], 
-          ",", 
-          RowBox[{"Spacer", "[", "8", "]"}], ",", 
+              RowBox[{"catIn", ",", "nIn", ",", "pickIn"}], "}"}]}]}], 
+           "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"Spacer", "[", "8", "]"}], ",", "\[IndentingNewLine]", 
           RowBox[{"(*", " ", 
            RowBox[{"===", 
             RowBox[{"==", "Salientes"}], "===", "=="}], "*)"}], 
+          "\[IndentingNewLine]", 
           RowBox[{"Style", "[", 
            RowBox[{"\"\<Salientes\>\"", ",", "12", ",", "Bold"}], "]"}], ",", 
-          RowBox[{"Row", "[", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Row", "[", "\[IndentingNewLine]", 
            RowBox[{"{", 
             RowBox[{"\"\<Categor\[IAcute]a out: \>\"", ",", 
              RowBox[{"PopupMenu", "[", 
@@ -428,10 +503,11 @@ Applications\\\\FeynCalc\\\\FeynArts\\\\Models\>\"", "]"}]}], ";"}],
                 RowBox[{
                  RowBox[{"Keys", "[", "particleCatalog", "]"}], "->", 
                  RowBox[{"Keys", "[", "particleCatalog", "]"}]}], "]"}]}], 
-              "]"}]}], "}"}], "]"}], ",", 
-          RowBox[{"Dynamic", "[", 
+              "]"}]}], "}"}], "\[IndentingNewLine]", "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Dynamic", "[", "\[IndentingNewLine]", 
            RowBox[{
-            RowBox[{"Grid", "[", 
+            RowBox[{"Grid", "[", "\[IndentingNewLine]", 
              RowBox[{
               RowBox[{"Table", "[", 
                RowBox[{
@@ -454,25 +530,27 @@ Applications\\\\FeynCalc\\\\FeynArts\\\\Models\>\"", "]"}]}], ";"}],
                  "]"}], ",", 
                 RowBox[{"{", 
                  RowBox[{"i", ",", "1", ",", "nOut"}], "}"}]}], "]"}], ",", 
-              RowBox[{"Alignment", "->", "Left"}]}], "]"}], ",", 
+              RowBox[{"Alignment", "->", "Left"}]}], "\[IndentingNewLine]", 
+             "]"}], ",", "\[IndentingNewLine]", 
             RowBox[{"TrackedSymbols", ":>", 
              RowBox[{"{", 
               RowBox[{"catOut", ",", "nOut", ",", "pickOut"}], "}"}]}]}], 
-           "]"}], ",", 
+           "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
           RowBox[{"Spacer", "[", "10", "]"}], ",", 
-          RowBox[{"Row", "[", 
+          RowBox[{"Row", "[", "\[IndentingNewLine]", 
            RowBox[{"{", 
             RowBox[{
-             RowBox[{"Button", "[", 
+             RowBox[{"Button", "[", "\[IndentingNewLine]", 
               RowBox[{
                RowBox[{"Dynamic", "[", 
                 RowBox[{"If", "[", 
                  RowBox[{
                  "running", ",", "\"\<Generando\[Ellipsis]\>\"", 
                   ",", "\"\<Generar diagramas\>\""}], "]"}], "]"}], ",", 
-               RowBox[{"If", "[", 
-                RowBox[{"running", ",", "Null", ",", 
-                 RowBox[{"Module", "[", 
+               "\[IndentingNewLine]", 
+               RowBox[{"If", "[", "\[IndentingNewLine]", 
+                RowBox[{"running", ",", "Null", ",", "\[IndentingNewLine]", 
+                 RowBox[{"Module", "[", "\[IndentingNewLine]", 
                   RowBox[{
                    RowBox[{"{", 
                     RowBox[{
@@ -484,7 +562,7 @@ Applications\\\\FeynCalc\\\\FeynArts\\\\Models\>\"", "]"}]}], ";"}],
                     RowBox[{"(*", 
                     RowBox[{"limpia", " ", 
                     RowBox[{"prints", "/", "messages"}], " ", "de", " ", 
-                    "FeynArts"}], "*)"}], 
+                    "FeynArts"}], "*)"}], "\[IndentingNewLine]", 
                     RowBox[{"NotebookDelete", "@", 
                     RowBox[{"Cells", "[", 
                     RowBox[{"CellStyle", "->", "\"\<Print\>\""}], "]"}]}], ";",
@@ -495,7 +573,7 @@ Applications\\\\FeynCalc\\\\FeynArts\\\\Models\>\"", "]"}]}], ";"}],
                      "\[IndentingNewLine]", 
                     RowBox[{"(*", 
                     RowBox[{"resetea", " ", "preview", " ", "anterior"}], 
-                    "*)"}], 
+                    "*)"}], "\[IndentingNewLine]", 
                     RowBox[{"diags", "=", "None"}], ";", 
                     "\[IndentingNewLine]", 
                     RowBox[{"paintImg", "=", "None"}], ";", 
@@ -508,7 +586,7 @@ Applications\\\\FeynCalc\\\\FeynArts\\\\Models\>\"", "]"}]}], ";"}],
                     RowBox[{"Take", "[", 
                     RowBox[{"pickOut", ",", "nOut"}], "]"}]}], ";", 
                     "\[IndentingNewLine]", 
-                    RowBox[{"If", "[", 
+                    RowBox[{"If", "[", "\[IndentingNewLine]", 
                     RowBox[{
                     RowBox[{
                     RowBox[{"MemberQ", "[", 
@@ -516,16 +594,16 @@ Applications\\\\FeynCalc\\\\FeynArts\\\\Models\>\"", "]"}]}], ";"}],
                     RowBox[{"MemberQ", "[", 
                     RowBox[{"outList", ",", "None"}], "]"}]}], ",", 
                     RowBox[{
-                    RowBox[{"status", "=", 
+                    RowBox[{"statusDiag", "=", 
                     RowBox[{"Style", "[", 
                     
                     RowBox[{"\"\<Selecciona todas las part\[IAcute]culas en \
 in y out.\>\"", ",", "Red"}], "]"}]}], ";", "\[IndentingNewLine]", 
                     RowBox[{"running", "=", "False"}], ";", 
-                    RowBox[{"Return", "[", "]"}], ";"}]}], "]"}], ";", 
-                    "\[IndentingNewLine]", 
+                    RowBox[{"Return", "[", "]"}], ";"}]}], 
+                    "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
                     RowBox[{
-                    "status", 
+                    "statusDiag", 
                     "=", "\"\<CreateTopologies + \
 InsertFields\[Ellipsis]\>\""}], ";", "\[IndentingNewLine]", 
                     RowBox[{"tmp", "=", 
@@ -548,31 +626,30 @@ InsertFields\[Ellipsis]\>\""}], ";", "\[IndentingNewLine]",
                     RowBox[{"GenericModel", "->", "genName"}]}], "]"}]}], ",",
                      "$Failed"}], "]"}]}], ",", "60", ",", "$TimedOut"}], 
                     "]"}]}], ";", "\[IndentingNewLine]", 
-                    RowBox[{"If", "[", 
+                    RowBox[{"If", "[", "\[IndentingNewLine]", 
                     RowBox[{
                     RowBox[{
                     RowBox[{"tmp", "===", "$TimedOut"}], "||", 
                     RowBox[{"tmp", "===", "$Failed"}], "||", 
                     RowBox[{"tmp", "===", "$Aborted"}]}], ",", 
                     RowBox[{
-                    RowBox[{"status", "=", 
+                    RowBox[{"statusDiag", "=", 
                     RowBox[{"Style", "[", 
                     
                     RowBox[{"\"\<Fallo/timeout generando diagramas. Revisa el \
 proceso/modelo.\>\"", ",", "Red"}], "]"}]}], ";", "\[IndentingNewLine]", 
                     RowBox[{"running", "=", "False"}], ";", 
-                    RowBox[{"Return", "[", "]"}], ";"}]}], "]"}], ";", 
-                    "\[IndentingNewLine]", 
+                    RowBox[{"Return", "[", "]"}], ";"}]}], 
+                    "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
                     RowBox[{"diags", "=", "tmp"}], ";", "\[IndentingNewLine]", 
-                    RowBox[{"status", "=", "\"\<Pintando\[Ellipsis]\>\""}], ";",
-                     "\[IndentingNewLine]", 
-                    RowBox[{"img", "=", 
+                    RowBox[{
+                    "statusDiag", "=", "\"\<Pintando\[Ellipsis]\>\""}], ";", 
+                    "\n", "\[IndentingNewLine]", 
+                    RowBox[{"paintG", "=", 
                     RowBox[{"TimeConstrained", "[", 
                     RowBox[{
                     RowBox[{"Quiet", "@", 
                     RowBox[{"Check", "[", 
-                    RowBox[{
-                    RowBox[{"Rasterize", "[", 
                     RowBox[{
                     RowBox[{"Paint", "[", 
                     RowBox[{"diags", ",", 
@@ -581,34 +658,48 @@ proceso/modelo.\>\"", ",", "Red"}], "]"}]}], ";", "\[IndentingNewLine]",
                     RowBox[{"ColumnsXRows", "->", 
                     RowBox[{"{", 
                     RowBox[{"3", ",", "2"}], "}"}]}], ",", 
-                    RowBox[{"ImageSize", "->", 
-                    RowBox[{"{", 
-                    RowBox[{"760", ",", "420"}], "}"}]}]}], "]"}], 
-                    ",", "\"\<Image\>\""}], "]"}], ",", "$Failed"}], "]"}]}], 
-                    ",", "30", ",", "$TimedOut"}], "]"}]}], ";", 
-                    "\[IndentingNewLine]", 
+                    RowBox[{"ImageSize", "->", "800"}]}], "]"}], ",", 
+                    "$Failed"}], "]"}]}], ",", "30", ",", "$TimedOut"}], 
+                    "]"}]}], ";", "\n", "\[IndentingNewLine]", 
                     RowBox[{"If", "[", 
                     RowBox[{
                     RowBox[{
-                    RowBox[{"img", "===", "$TimedOut"}], "||", 
-                    RowBox[{"img", "===", "$Failed"}]}], ",", 
+                    RowBox[{"paintG", "===", "$TimedOut"}], "||", 
+                    RowBox[{"paintG", "===", "$Failed"}]}], ",", 
                     RowBox[{
+                    RowBox[{"paintG", "=", "None"}], ";", 
+                    "\[IndentingNewLine]", 
                     RowBox[{"paintImg", "=", "None"}], ";", 
                     "\[IndentingNewLine]", 
                     RowBox[{
-                    "status", 
+                    "statusDiag", 
                     "=", "\"\<Diagramas generados (sin preview).\>\""}]}], ",", 
                     RowBox[{
-                    RowBox[{"paintImg", "=", "img"}], ";", 
-                    "\[IndentingNewLine]", 
+                    RowBox[{"paintImg", "=", 
+                    RowBox[{"Quiet", "@", 
+                    RowBox[{"Check", "[", 
                     RowBox[{
-                    "status", "=", "\"\<OK: diagramas generados.\>\""}]}]}], 
-                    "]"}], ";", "\[IndentingNewLine]", 
-                    RowBox[{"running", "=", "False"}], ";"}]}], "]"}]}], 
-                "]"}], ",", 
-               RowBox[{"Method", "->", "\"\<Queued\>\""}]}], "]"}], ",", 
-             RowBox[{"Spacer", "[", "10", "]"}], ",", 
-             RowBox[{"Button", "[", 
+                    RowBox[{"Rasterize", "[", 
+                    RowBox[{"paintG", ",", "\"\<Image\>\""}], "]"}], ",", 
+                    "$Failed"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"paintImg", "===", "$Failed"}], ",", 
+                    RowBox[{"paintImg", "=", "None"}]}], "]"}], ";", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"statusDiag", "=", 
+                    RowBox[{"Style", "[", 
+                    
+                    RowBox[{"\"\<Diagramas generados. (salen al final)\>\"", ",",
+                     " ", "Green"}], "]"}]}]}]}], "]"}], ";", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"running", "=", "False"}], ";"}]}], 
+                  "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+                "]"}], ",", "\[IndentingNewLine]", 
+               RowBox[{"Method", "->", "\"\<Queued\>\""}]}], 
+              "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+             RowBox[{"Spacer", "[", "10", "]"}], ",", "\[IndentingNewLine]", 
+             RowBox[{"Button", "[", "\[IndentingNewLine]", 
               RowBox[{"\"\<Reset/Limpiar\>\"", ",", 
                RowBox[{
                 RowBox[{"NotebookDelete", "@", 
@@ -621,6 +712,7 @@ proceso/modelo.\>\"", ",", "Red"}], "]"}]}], ";", "\[IndentingNewLine]",
                  "\[IndentingNewLine]", 
                 RowBox[{"diags", "=", "None"}], ";", "\[IndentingNewLine]", 
                 RowBox[{"paintImg", "=", "None"}], ";", "\[IndentingNewLine]", 
+                RowBox[{"paintG", "=", "None"}], ";", "\[IndentingNewLine]", 
                 RowBox[{"pickIn", "=", 
                  RowBox[{"ConstantArray", "[", 
                   RowBox[{"None", ",", "6"}], "]"}]}], ";", 
@@ -629,22 +721,278 @@ proceso/modelo.\>\"", ",", "Red"}], "]"}]}], ";", "\[IndentingNewLine]",
                  RowBox[{"ConstantArray", "[", 
                   RowBox[{"None", ",", "6"}], "]"}]}], ";", 
                 "\[IndentingNewLine]", 
-                RowBox[{"status", "=", "\"\<Listo.\>\""}], ";"}]}], "]"}]}], 
-            "}"}], "]"}], ",", "Delimiter", ",", 
-          RowBox[{"Dynamic", "[", "status", "]"}], ",", 
+                RowBox[{"statusDiag", "=", 
+                 RowBox[{"Style", "[", 
+                  RowBox[{"\"\<Diagramas reseteados.\>\"", ",", "Orange"}], 
+                  "]"}]}], ";"}]}], "\[IndentingNewLine]", "]"}], ",", 
+             RowBox[{"Spacer", "[", "10", "]"}], ",", "\[IndentingNewLine]", 
+             RowBox[{"(*", " ", 
+              RowBox[{"===", "===", 
+               RowBox[{"Exportar", " ", "diagramas", " ", "a", " ", "PDF"}], "===",
+                "==="}], "*)"}], "\[IndentingNewLine]", 
+             RowBox[{"Button", "[", "\[IndentingNewLine]", 
+              
+              RowBox[{"\"\<Exportar diagramas a PDF\>\"", ",", 
+               "\[IndentingNewLine]", 
+               RowBox[{"Module", "[", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"path", ",", "g"}], "}"}], ",", 
+                 RowBox[{
+                  RowBox[{"If", "[", 
+                   RowBox[{
+                    RowBox[{"diags", "===", "None"}], ",", 
+                    RowBox[{
+                    RowBox[{"statusDiag", "=", 
+                    RowBox[{"Style", "[", 
+                    
+                    RowBox[{"\"\<No hay diagramas para exportar (genera \
+primero).\>\"", ",", "Red"}], "]"}]}], ";", "\[IndentingNewLine]", 
+                    RowBox[{"Return", "[", "]"}], ";"}]}], "]"}], ";", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"path", "=", 
+                   RowBox[{"SystemDialogInput", "[", 
+                    RowBox[{"\"\<FileSave\>\"", 
+                    ",", "\"\<diagramas.pdf\>\""}], "]"}]}], ";", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"If", "[", 
+                   RowBox[{
+                    RowBox[{"path", "===", "$Canceled"}], ",", 
+                    RowBox[{"Return", "[", "]"}]}], "]"}], ";", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{
+                  "statusDiag", "=", "\"\<Exportando a PDF\[Ellipsis]\>\""}], 
+                  ";", "\[IndentingNewLine]", 
+                  RowBox[{"g", "=", 
+                   RowBox[{"Paint", "[", 
+                    RowBox[{"diags", ",", 
+                    RowBox[{"Numbering", "->", "Simple"}], ",", 
+                    RowBox[{"SheetHeader", "->", "None"}], ",", 
+                    RowBox[{"ColumnsXRows", "->", 
+                    RowBox[{"{", 
+                    RowBox[{"3", ",", "2"}], "}"}]}], ",", 
+                    RowBox[{"ImageSize", "->", "800"}]}], "]"}]}], ";", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"Quiet", "@", 
+                   RowBox[{"Check", "[", 
+                    RowBox[{
+                    RowBox[{"Export", "[", 
+                    RowBox[{"path", ",", "g", ",", "\"\<PDF\>\""}], "]"}], ",", 
+                    RowBox[{
+                    RowBox[{"statusDiag", "=", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<Error exportando a PDF.\>\"", ",", "Red"}], 
+                    "]"}]}], ";", "\[IndentingNewLine]", 
+                    RowBox[{"Return", "[", "]"}], ";"}]}], "]"}]}], ";", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"statusDiag", "=", 
+                   RowBox[{"Style", "[", 
+                    RowBox[{
+                    RowBox[{"\"\<PDF exportado: \>\"", "<>", 
+                    RowBox[{"ToString", "[", "path", "]"}]}], ",", "Green"}], 
+                    "]"}]}], ";"}]}], "\[IndentingNewLine]", "]"}], ",", 
+               RowBox[{"Method", "->", "\"\<Queued\>\""}]}], 
+              "\[IndentingNewLine]", "]"}]}], "}"}], "\[IndentingNewLine]", 
+           "]"}], ",", "Delimiter", ",", 
+          RowBox[{"Dynamic", "[", "statusDiag", "]"}], ",", 
+          RowBox[{"Spacer", "[", "15", "]"}], ",", "\[IndentingNewLine]", 
+          "\[IndentingNewLine]", 
           RowBox[{"Dynamic", "[", 
            RowBox[{
             RowBox[{"If", "[", 
              RowBox[{
-              RowBox[{"paintImg", "===", "None"}], ",", "Nothing", ",", 
+              RowBox[{
+               RowBox[{"paintG", "===", "None"}], "&&", 
+               RowBox[{"paintImg", "===", "None"}]}], ",", 
               RowBox[{"Column", "[", 
                RowBox[{"{", 
                 RowBox[{
                  RowBox[{"Style", "[", 
-                  RowBox[{"\"\<Vista previa:\>\"", ",", "12", ",", "Bold"}], 
-                  "]"}], ",", "paintImg"}], "}"}], "]"}]}], "]"}], ",", 
+                  
+                  RowBox[{"\"\<Vista previa de los diagramas:\>\"", ",", "12",
+                    ",", "Bold"}], "]"}], ",", 
+                 RowBox[{"If", "[", 
+                  RowBox[{
+                   RowBox[{"paintImg", "===", "None"}], ",", "paintImg", ",", 
+                   "paintG"}], "]"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"830", ",", "450"}], "}"}], ",", 
+                 RowBox[{"Scrollbars", "->", "True"}]}], "}"}], "]"}], ",", 
+              " ", "Nothing"}], "]"}], ",", 
             RowBox[{"TrackedSymbols", ":>", 
-             RowBox[{"{", "paintImg", "}"}]}]}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"paintG", ",", "paintImg"}], "}"}]}]}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Column", "[", 
+           RowBox[{"{", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+            RowBox[{"(*", " ", 
+             RowBox[{
+              RowBox[{"===", "===", "===", "===", "===", "===", "===", " ", 
+               RowBox[{"BLOQUE", " ", "2"}]}], ":", " ", 
+              RowBox[{
+              "Amplitudes", " ", "===", "===", "===", "===", "===", "===", 
+               "==="}]}], "*)"}], "\[IndentingNewLine]", 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"Style", "[", 
+              
+              RowBox[{"\"\<Generador de amplitudes\>\"", ",", " ", "16", ",", 
+               " ", "Bold"}], "]"}], ",", "\[IndentingNewLine]", 
+             RowBox[{"Grid", "[", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"{", 
+                 RowBox[{"\"\<Visualizar la amplitud:\>\"", ",", 
+                  RowBox[{"PopupMenu", "[", 
+                   RowBox[{
+                    RowBox[{"Dynamic", "[", "showAmp", "]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"True", "->", "\"\<S\[IAcute]\>\""}], ",", 
+                    RowBox[{"False", "->", "\"\<No\>\""}]}], "}"}]}], "]"}]}],
+                  "}"}], "}"}], ",", "\[IndentingNewLine]", 
+               RowBox[{"Alignment", "->", "Left"}], ",", 
+               RowBox[{"Spacings", "->", 
+                RowBox[{"{", 
+                 RowBox[{"2", ",", "1"}], "}"}]}]}], "\[IndentingNewLine]", 
+              "]"}], ",", "\[IndentingNewLine]", 
+             RowBox[{"Spacer", "[", "10", "]"}], ",", "\[IndentingNewLine]", 
+             RowBox[{"Button", "[", "\[IndentingNewLine]", 
+              RowBox[{"\"\<Calcular amplitud\>\"", ",", 
+               RowBox[{"Module", "[", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"tmpFA", ",", "tmpFC"}], "}"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{
+                  RowBox[{"If", "[", 
+                   RowBox[{
+                    RowBox[{"diags", "===", "None"}], ",", 
+                    RowBox[{
+                    RowBox[{"statusAmp", "=", 
+                    RowBox[{"Style", "[", 
+                    
+                    RowBox[{"\"\<Primero genera los diagramas.\>\"", ",", 
+                    "Red"}], "]"}]}], ";", "\[IndentingNewLine]", 
+                    RowBox[{"Return", "[", "]"}], ";"}]}], "]"}], ";", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{
+                  "statusAmp", "=", "\"\<Calculando amplitud...\>\""}], ";", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"ampFA", "=", "None"}], ";", "\[IndentingNewLine]", 
+                  RowBox[{"ampFC", "=", "None"}], ";", "\[IndentingNewLine]", 
+                  RowBox[{"(*", 
+                   RowBox[{
+                    RowBox[{" ", "1", ")"}], " ", "CreateFeynAmp"}], " ", 
+                   "*)"}], "\[IndentingNewLine]", 
+                  RowBox[{"tmpFA", "=", 
+                   RowBox[{"TimeConstrained", "[", 
+                    RowBox[{
+                    RowBox[{"Quiet", "@", 
+                    RowBox[{"Check", "[", 
+                    RowBox[{
+                    RowBox[{"CreateFeynAmp", "[", "diags", "]"}], ",", 
+                    "$Failed"}], "]"}]}], ",", "1200", ",", "$TimedOut"}], 
+                    "]"}]}], ";", "\[IndentingNewLine]", 
+                  RowBox[{"If", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"tmpFA", "===", "$TimedOut"}], "||", 
+                    RowBox[{"tmpFA", "===", "$Failed"}], "||", 
+                    RowBox[{"tmpFA", "===", "$Aborted"}]}], ",", 
+                    RowBox[{
+                    RowBox[{"statusAmp", "=", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<Fallo en CreateFeynAmp.\>\"", ",", "Red"}], 
+                    "]"}]}], ";", "\[IndentingNewLine]", 
+                    RowBox[{"Return", "[", "]"}], ";"}]}], "]"}], ";", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"ampFA", "=", "tmpFA"}], ";", "\[IndentingNewLine]", 
+                  RowBox[{"(*", 
+                   RowBox[{
+                    RowBox[{" ", "2", ")"}], " ", "Conversi\[OAcute]n", " ", 
+                    "a", " ", "FeynCalc"}], " ", "*)"}], 
+                  RowBox[{"tmpFC", "=", 
+                   RowBox[{"TimeConstrained", "[", 
+                    RowBox[{
+                    RowBox[{"Quiet", "@", 
+                    RowBox[{"Check", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"FCFAConvert", "[", 
+                    RowBox[{"ampFA", ",", 
+                    RowBox[{"IncomingMomenta", "->", 
+                    RowBox[{"{", 
+                    RowBox[{"p1", ",", "p2"}], "}"}]}], ",", 
+                    RowBox[{"OutgoingMomenta", "->", 
+                    RowBox[{"{", 
+                    RowBox[{"p3", ",", "p4"}], "}"}]}], ",", 
+                    RowBox[{"ChangeDimension", "->", "4"}], ",", 
+                    RowBox[{"UndoChiralSplittings", "->", "True"}], ",", 
+                    RowBox[{"DropIndexSum", "->", "False"}], ",", 
+                    RowBox[{"List", "->", "False"}], ",", 
+                    RowBox[{"FCFADiracChainJoin", "->", "False"}]}], "]"}], "//",
+                     "FCI"}], ",", "$Failed"}], "]"}]}], ",", "1200", ",", 
+                    "$TimedOut"}], "]"}]}], ";", "\[IndentingNewLine]", 
+                  RowBox[{"If", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"tmpFC", "===", "$TimedOut"}], "||", 
+                    RowBox[{"tmpFC", "===", "$Failed"}], "||", 
+                    RowBox[{"tmpFC", "===", "$Aborted"}]}], ",", 
+                    RowBox[{
+                    RowBox[{"statusAmp", "=", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<Fallo en FCFAConvert.\>\"", ",", "Red"}], 
+                    "]"}]}], ";", "\[IndentingNewLine]", 
+                    RowBox[{"Return", "[", "]"}], ";"}]}], "]"}], ";", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"ampFC", "=", "tmpFC"}], ";", "\[IndentingNewLine]", 
+                  RowBox[{"statusAmp", "=", 
+                   RowBox[{"Style", "[", 
+                    
+                    RowBox[{"\"\<Amplitud calculada.\>\"", ",", " ", 
+                    "Green"}], "]"}]}], ";"}]}], "]"}], ",", 
+               RowBox[{"Method", "->", "\"\<Queued\>\""}]}], 
+              "\[IndentingNewLine]", "]"}], ",", 
+             RowBox[{"Spacer", "[", "10", "]"}], ",", "\[IndentingNewLine]", 
+             RowBox[{"Button", "[", 
+              RowBox[{"\"\<Resetear/Limpiar\>\"", ",", 
+               RowBox[{
+                RowBox[{"ampFA", "=", "None"}], ";", "\[IndentingNewLine]", 
+                RowBox[{"ampFC", "=", "None"}], ";", "\[IndentingNewLine]", 
+                RowBox[{"showAmp", "=", "False"}], ";", "\[IndentingNewLine]", 
+                RowBox[{"statusAmp", "=", 
+                 RowBox[{"Style", "[", 
+                  RowBox[{"\"\<Amplitud reseteada.\>\"", ",", " ", "Orange"}],
+                   "]"}]}], ";"}]}], "\[IndentingNewLine]", "]"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"Spacer", "[", "15", "]"}], ",", "\[IndentingNewLine]", 
+             RowBox[{"Dynamic", "[", 
+              RowBox[{
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{"showAmp", "&&", 
+                  RowBox[{"ampFC", "=!=", "None"}]}], ",", 
+                 RowBox[{"Column", "[", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"Style", "[", 
+                    
+                    RowBox[{"\"\<Amplitud completa:\>\"", ",", "12", ",", 
+                    "Bold"}], "]"}], ",", 
+                    RowBox[{"Pane", "[", 
+                    RowBox[{"ampFC", ",", 
+                    RowBox[{"{", 
+                    RowBox[{"800", ",", "300"}], "}"}], ",", 
+                    RowBox[{"Scrollbars", "->", "True"}]}], "]"}]}], "}"}], 
+                  "]"}], ",", "Nothing"}], "]"}], ",", 
+               RowBox[{"TrackedSymbols", ":>", 
+                RowBox[{"{", 
+                 RowBox[{"showAmp", ",", "ampFC"}], "}"}]}]}], "]"}]}], 
+            "\[IndentingNewLine]", "\[IndentingNewLine]", "}"}], "]"}], 
+          "\[IndentingNewLine]", ",", "Delimiter", ",", 
+          RowBox[{"Dynamic", "[", "statusAmp", "]"}], ",", "\n", 
           RowBox[{"(*", 
            RowBox[{"Debug", " ", 
             RowBox[{"\[UAcute]til", ":", 
@@ -679,7 +1027,7 @@ proceso/modelo.\>\"", ",", "Red"}], "]"}]}], ";", "\[IndentingNewLine]",
               RowBox[{"pickIn", ",", "pickOut", ",", "nIn", ",", "nOut"}], 
               "}"}]}]}], "]"}]}], "}"}], ",", 
         RowBox[{"Spacings", "->", "1.2"}]}], "]"}]}], "]"}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\n", 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{"DiagramUIManualCatalog", "[", "]"}]}], "Input",
  CellChangeTimes->{{3.9812171239031296`*^9, 3.9812171370643654`*^9}, 
    3.9812174136432323`*^9, 3.9812177921538506`*^9, 3.9812179719615517`*^9, 
@@ -694,483 +1042,50 @@ proceso/modelo.\>\"", ",", "Red"}], "]"}]}], ";", "\[IndentingNewLine]",
    3.9812203132545643`*^9, 3.9812203802184105`*^9}, {3.9812204145784645`*^9, 
    3.981220418151169*^9}, {3.9812204816012497`*^9, 3.9812206586214504`*^9}, {
    3.9812206918630886`*^9, 3.98122078233515*^9}, {3.981220817840065*^9, 
-   3.981220984519598*^9}},
- CellLabel->"In[1]:=",ExpressionUUID->"abb37261-e3cc-464b-abea-40502ce93d5c"],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{
-   StyleBox["\<\"FeynCalc \"\>", "Text",
-    StripOnInput->False,
-    FontWeight->Bold], "\[InvisibleSpace]", 
-   StyleBox["\<\"10.2.0 (stable version). For help, use the \"\>", "Text",
-    StripOnInput->False], "\[InvisibleSpace]", 
-   StyleBox[
-    TagBox[
-     ButtonBox[
-      RowBox[{
-       RowBox[{"online", " ", "documentation"}], ","}],
-      BaseStyle->"Hyperlink",
-      ButtonData:>{
-        URL["https://feyncalc.github.io/referenceDev"], None},
-      ButtonNote->"https://feyncalc.github.io/referenceDev"],
-     DisplayForm], "Text",
-    StripOnInput->False], "\[InvisibleSpace]", 
-   StyleBox["\<\" visit the \"\>", "Text",
-    StripOnInput->False], "\[InvisibleSpace]", 
-   StyleBox[
-    TagBox[
-     ButtonBox["forum",
-      BaseStyle->"Hyperlink",
-      ButtonData:>{
-        URL["https://github.com/FeynCalc/feyncalc/discussions"], None},
-      ButtonNote->"https://github.com/FeynCalc/feyncalc/discussions/"],
-     DisplayForm], "Text",
-    StripOnInput->False], "\[InvisibleSpace]", 
-   StyleBox["\<\" and have a look at the supplied \"\>", "Text",
-    StripOnInput->False], "\[InvisibleSpace]", 
-   StyleBox[
-    TagBox[
-     ButtonBox[
-      RowBox[{"examples", "."}],
-      BaseStyle->"Hyperlink",
-      ButtonFunction:>SystemOpen[
-        FileNameJoin[{FeynCalc`$FeynCalcDirectory, "Examples"}]],
-      Evaluator->Automatic,
-      Method->"Preemptive"],
-     DisplayForm], "Text",
-    StripOnInput->False], "\[InvisibleSpace]", 
-   StyleBox["\<\" The PDF-version of the manual can be downloaded \"\>", 
-    "Text",
-    StripOnInput->False], "\[InvisibleSpace]", 
-   StyleBox[
-    TagBox[
-     ButtonBox[
-      RowBox[{"here", "."}],
-      BaseStyle->"Hyperlink",
-      ButtonData:>{
-        URL[
-        "https://github.com/FeynCalc/feyncalc-manual/releases/download/dev-\
-manual/FeynCalcManual.pdf"], None},
-      ButtonNote->
-       "https://github.com/FeynCalc/feyncalc-manual/releases/download/dev-\
-manual/FeynCalcManual.pdf"],
-     DisplayForm], "Text",
-    StripOnInput->False]}],
-  SequenceForm[
-   Style["FeynCalc ", "Text", Bold], 
-   Style["10.2.0 (stable version). For help, use the ", "Text"], 
-   Style[
-    DisplayForm[
-     ButtonBox["online documentation,", ButtonData :> {
-        URL["https://feyncalc.github.io/referenceDev"], None}, BaseStyle -> 
-      "Hyperlink", ButtonNote -> "https://feyncalc.github.io/referenceDev"]], 
-    "Text"], 
-   Style[" visit the ", "Text"], 
-   Style[
-    DisplayForm[
-     ButtonBox["forum", ButtonData :> {
-        URL["https://github.com/FeynCalc/feyncalc/discussions"], None}, 
-      BaseStyle -> "Hyperlink", ButtonNote -> 
-      "https://github.com/FeynCalc/feyncalc/discussions/"]], "Text"], 
-   Style[" and have a look at the supplied ", "Text"], 
-   Style[
-    DisplayForm[
-     ButtonBox[
-     "examples.", BaseStyle -> "Hyperlink", ButtonFunction :> SystemOpen[
-        FileNameJoin[{FeynCalc`$FeynCalcDirectory, "Examples"}]], Evaluator -> 
-      Automatic, Method -> "Preemptive"]], "Text"], 
-   Style[" The PDF-version of the manual can be downloaded ", "Text"], 
-   Style[
-    DisplayForm[
-     ButtonBox["here.", ButtonData :> {
-        URL[
-        "https://github.com/FeynCalc/feyncalc-manual/releases/download/dev-\
-manual/FeynCalcManual.pdf"], None}, BaseStyle -> "Hyperlink", ButtonNote -> 
-      "https://github.com/FeynCalc/feyncalc-manual/releases/download/dev-\
-manual/FeynCalcManual.pdf"]], "Text"]],
-  Editable->False]], "Print",
- CellChangeTimes->{
-  3.98121973124004*^9, {3.9812197842429523`*^9, 3.981219796652483*^9}, 
-   3.98122048350963*^9, {3.981220535348732*^9, 3.981220546448883*^9}, 
-   3.981220659423975*^9, 3.981220993409216*^9, 3.981221638490032*^9},
+   3.981220984519598*^9}, {3.9812968092876987`*^9, 3.9812968127331753`*^9}, 
+   3.9812968655897408`*^9, {3.981297245793007*^9, 3.981297293643055*^9}, {
+   3.981297343248329*^9, 3.9812974250280266`*^9}, {3.9812974960196686`*^9, 
+   3.9812975866575546`*^9}, {3.98129766102993*^9, 3.981297737131132*^9}, {
+   3.981298015279787*^9, 3.981298046334032*^9}, {3.9812981174119415`*^9, 
+   3.9812981651768227`*^9}, {3.9812982261899643`*^9, 
+   3.9812982509479485`*^9}, {3.981298395628748*^9, 3.9812984997246037`*^9}, {
+   3.9812985417002716`*^9, 3.9812986122168255`*^9}, 3.98129872476462*^9, {
+   3.98129879458893*^9, 3.9812987992665386`*^9}, {3.981300361882248*^9, 
+   3.9813003865525837`*^9}, {3.9813004312768707`*^9, 
+   3.9813004612940426`*^9}, {3.9813004997091846`*^9, 
+   3.9813005069117756`*^9}, {3.9813006266023254`*^9, 3.981300709946579*^9}, {
+   3.98130074664822*^9, 3.9813007704645767`*^9}, {3.981300819348921*^9, 
+   3.981301086760128*^9}, {3.981301148763918*^9, 3.981301151786766*^9}, 
+   3.9813011953388233`*^9, {3.981301601594368*^9, 3.981301694410269*^9}, {
+   3.9813017615289974`*^9, 3.9813017808697243`*^9}, 3.981301819836319*^9, {
+   3.9813018771652184`*^9, 3.9813018799415264`*^9}, {3.981301978201847*^9, 
+   3.981301980149849*^9}, 3.981302018460058*^9, {3.9813020709940243`*^9, 
+   3.981302101845028*^9}, 3.9813021381975594`*^9, {3.9813021773606052`*^9, 
+   3.981302179139763*^9}, {3.981302283930748*^9, 3.9813023138386765`*^9}, {
+   3.981302369090044*^9, 3.981302374076195*^9}, {3.9813025623737087`*^9, 
+   3.981302614792616*^9}, {3.981302652928156*^9, 3.9813027106598206`*^9}, 
+   3.9813028302971344`*^9, {3.98130293747167*^9, 3.9813029775489407`*^9}, {
+   3.9813031500273*^9, 3.981303153930254*^9}, {3.981303220292696*^9, 
+   3.9813032314614887`*^9}, {3.981303272853552*^9, 3.9813032919487705`*^9}, {
+   3.9813033549074135`*^9, 3.9813033996694794`*^9}, {3.981303591320759*^9, 
+   3.9813036016993217`*^9}, {3.9813042841299057`*^9, 
+   3.9813042902941055`*^9}, {3.981304345562668*^9, 3.9813043524368095`*^9}, {
+   3.98130439618524*^9, 3.9813044103340454`*^9}, {3.9813044552628*^9, 
+   3.9813044907752304`*^9}, {3.9813045871400986`*^9, 
+   3.9813046149079914`*^9}, {3.98130471066148*^9, 3.98130477043157*^9}, {
+   3.981305040391617*^9, 3.981305069169779*^9}, 3.981305760975254*^9, {
+   3.9813058400970535`*^9, 3.9813058487944584`*^9}, {3.981305909163721*^9, 
+   3.981305966121464*^9}, {3.981306085285143*^9, 3.981306097648279*^9}, {
+   3.9813061347433796`*^9, 3.9813061435483494`*^9}, 3.981306209895401*^9, {
+   3.981306240329134*^9, 3.981306268386944*^9}, {3.981306305557581*^9, 
+   3.9813063064914265`*^9}, 3.981306449334902*^9, {3.981306512610256*^9, 
+   3.981306561585243*^9}, {3.981306722684086*^9, 3.981306799309147*^9}, {
+   3.98130685908642*^9, 3.9813068847894707`*^9}},
  CellLabel->
-  "Durante la evaluaci\[OAcute]n de \
-In[1]:=",ExpressionUUID->"26af575e-62b1-a343-bdb0-8d283d638d24"],
+  "In[113]:=",ExpressionUUID->"abb37261-e3cc-464b-abea-40502ce93d5c"],
 
 Cell[BoxData[
- StyleBox["\<\"If you use FeynCalc in your research, please evaluate \
-FeynCalcHowToCite[] to learn how to cite this software.\"\>", "Text",
-  StripOnInput->False]], "Print",
- CellChangeTimes->{
-  3.98121973124004*^9, {3.9812197842429523`*^9, 3.981219796652483*^9}, 
-   3.98122048350963*^9, {3.981220535348732*^9, 3.981220546448883*^9}, 
-   3.981220659423975*^9, 3.981220993409216*^9, 3.981221638500599*^9},
- CellLabel->
-  "Durante la evaluaci\[OAcute]n de \
-In[1]:=",ExpressionUUID->"5a2b3685-a0e4-ae4b-a6a9-ea703334ccdb"],
-
-Cell[BoxData[
- StyleBox["\<\"Please keep in mind that the proper academic attribution of \
-our work is crucial to ensure the future development of this package!\"\>", 
-  "Text",
-  StripOnInput->False,
-  FontSlant->Italic]], "Print",
- CellChangeTimes->{
-  3.98121973124004*^9, {3.9812197842429523`*^9, 3.981219796652483*^9}, 
-   3.98122048350963*^9, {3.981220535348732*^9, 3.981220546448883*^9}, 
-   3.981220659423975*^9, 3.981220993409216*^9, 3.981221638502142*^9},
- CellLabel->
-  "Durante la evaluaci\[OAcute]n de \
-In[1]:=",ExpressionUUID->"194aae71-6bb0-984a-a8f5-f229ef6347e9"],
-
-Cell[BoxData[
- InterpretationBox[
-  RowBox[{
-   StyleBox["\<\"FeynArts \"\>", "Text",
-    StripOnInput->False,
-    FontWeight->Bold], "\[InvisibleSpace]", 
-   StyleBox["\<\"3.12 (27 Mar 2025) patched for use with FeynCalc, for \
-documentation see the \"\>", "Text",
-    StripOnInput->False], "\[InvisibleSpace]", 
-   StyleBox[
-    TagBox[
-     ButtonBox["manual",
-      BaseStyle->"Hyperlink",
-      ButtonFunction:>SystemOpen[
-        First[
-         FileNames[{"*.pdf", "*.PDF"}, 
-          FileNameJoin[{FeynCalc`$FeynArtsDirectory, "manual"}]]]],
-      Evaluator->Automatic,
-      Method->"Preemptive"],
-     DisplayForm], "Text",
-    StripOnInput->False], "\[InvisibleSpace]", 
-   StyleBox["\<\" or visit \"\>", "Text",
-    StripOnInput->False], "\[InvisibleSpace]", 
-   StyleBox[
-    TagBox[
-     ButtonBox[
-      RowBox[{"www", ".", "feynarts", ".", "de", "."}],
-      BaseStyle->"Hyperlink",
-      ButtonData:>{
-        URL["http://www.feynarts.de/"], None},
-      ButtonNote->"www.feynarts.de/"],
-     DisplayForm], "Text",
-    StripOnInput->False]}],
-  SequenceForm[
-   Style["FeynArts ", "Text", Bold], 
-   Style["3.12 (27 Mar 2025) patched for use with FeynCalc, for documentation \
-see the ", "Text"], 
-   Style[
-    DisplayForm[
-     ButtonBox[
-     "manual", BaseStyle -> "Hyperlink", ButtonFunction :> SystemOpen[
-        First[
-         FileNames[{"*.pdf", "*.PDF"}, 
-          FileNameJoin[{FeynCalc`$FeynArtsDirectory, "manual"}]]]], Evaluator -> 
-      Automatic, Method -> "Preemptive"]], "Text"], 
-   Style[" or visit ", "Text"], 
-   Style[
-    DisplayForm[
-     ButtonBox["www.feynarts.de.", ButtonData :> {
-        URL["http://www.feynarts.de/"], None}, BaseStyle -> "Hyperlink", 
-      ButtonNote -> "www.feynarts.de/"]], "Text"]],
-  Editable->False]], "Print",
- CellChangeTimes->{
-  3.98121973124004*^9, {3.9812197842429523`*^9, 3.981219796652483*^9}, 
-   3.98122048350963*^9, {3.981220535348732*^9, 3.981220546448883*^9}, 
-   3.981220659423975*^9, 3.981220993409216*^9, 3.9812216385862465`*^9},
- CellLabel->
-  "Durante la evaluaci\[OAcute]n de \
-In[1]:=",ExpressionUUID->"21c27c97-09ed-cc49-9716-d2ac037c5e8c"],
-
-Cell[BoxData[
- StyleBox["\<\"If you use FeynArts in your research, please cite\"\>", "Text",
-  StripOnInput->False]], "Print",
- CellChangeTimes->{
-  3.98121973124004*^9, {3.9812197842429523`*^9, 3.981219796652483*^9}, 
-   3.98122048350963*^9, {3.981220535348732*^9, 3.981220546448883*^9}, 
-   3.981220659423975*^9, 3.981220993409216*^9, 3.9812216385892525`*^9},
- CellLabel->
-  "Durante la evaluaci\[OAcute]n de \
-In[1]:=",ExpressionUUID->"4903b626-06f3-324a-8feb-7f8bb9554cb4"],
-
-Cell[BoxData[
- StyleBox["\<\" \[Bullet] T. Hahn, Comput. Phys. Commun., 140, 418-431, 2001, \
-arXiv:hep-ph/0012260\"\>", "Text",
-  StripOnInput->False]], "Print",
- CellChangeTimes->{
-  3.98121973124004*^9, {3.9812197842429523`*^9, 3.981219796652483*^9}, 
-   3.98122048350963*^9, {3.981220535348732*^9, 3.981220546448883*^9}, 
-   3.981220659423975*^9, 3.981220993409216*^9, 3.981221638590248*^9},
- CellLabel->
-  "Durante la evaluaci\[OAcute]n de \
-In[1]:=",ExpressionUUID->"ba311636-b85b-7446-9873-da3da00aee4f"]
-}, Open  ]],
-
-Cell[BoxData[
- DynamicModuleBox[{$CellContext`modelName$$ = 
-  "SMEFTsimtopU3l", $CellContext`genName$$ = 
-  "SMEFTsimtopU3l", $CellContext`insertion$$ = {
-  FeynArts`Particles}, $CellContext`loopOrder$$ = 0, $CellContext`nIn$$ = 
-  2, $CellContext`nOut$$ = 2, $CellContext`catIn$$ = 
-  "Leptones", $CellContext`catOut$$ = "Quarks", $CellContext`pickIn$$ = {
-  None, None, None, None, None, None}, $CellContext`pickOut$$ = {
-  None, None, None, None, None, None}, $CellContext`running$$ = 
-  False, $CellContext`status$$ = "Listo.", $CellContext`diags$$ = 
-  None, $CellContext`paintImg$$ = None}, 
-  TagBox[GridBox[{
-     {
-      StyleBox["\<\"Generador de diagramas (cat\[AAcute]logo manual)\"\>",
-       StripOnInput->False,
-       FontSize->16,
-       FontWeight->Bold]},
-     {
-      TagBox[GridBox[{
-         {"\<\"Model\"\>", 
-          InputFieldBox[Dynamic[$CellContext`modelName$$], String,
-           FieldSize->22], "\<\"GenericModel\"\>", 
-          InputFieldBox[Dynamic[$CellContext`genName$$], String,
-           FieldSize->22]},
-         {"\<\"InsertionLevel\"\>", 
-          
-          PopupMenuBox[Dynamic[$CellContext`insertion$$], {{
-           FeynArts`Particles}->"\<\"{Particles}\"\>", {
-           FeynArts`Classes}->"\<\"{Classes}\"\>"}], "\<\"LoopOrder\"\>", 
-          
-          PopupMenuBox[Dynamic[$CellContext`loopOrder$$], {
-           0->"\<\"0 (\[AAcute]rbol)\"\>", 1->"\<\"1 (1-loop)\"\>"}]}
-        },
-        AutoDelete->False,
-        GridBoxAlignment->{"Columns" -> {{Left}}},
-        GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
-        GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{1}}}],
-       "Grid"]},
-     {"Delimiter"},
-     {
-      TagBox[GridBox[{
-         {"\<\"# Entrantes (nIn):\"\>", 
-          InterpretationBox[
-           StyleBox[GridBox[{
-              {
-               SetterBox[Dynamic[$CellContext`nIn$$], {1}, "1"], 
-               SetterBox[Dynamic[$CellContext`nIn$$], {2}, "2"], 
-               SetterBox[Dynamic[$CellContext`nIn$$], {3}, "3"], 
-               SetterBox[Dynamic[$CellContext`nIn$$], {4}, "4"]}
-             },
-             BaselinePosition->{1, 1},
-             GridBoxSpacings->{"Columns" -> {
-                 Offset[0.27999999999999997`], {
-                  Offset[0.]}, 
-                 Offset[0.27999999999999997`]}, "Rows" -> {
-                 Offset[0.2], {
-                  Offset[0.4]}, 
-                 Offset[0.2]}}],
-            Deployed->True],
-           SetterBar[
-            Dynamic[$CellContext`nIn$$], {1, 2, 3, 4}]]},
-         {"\<\"# Salientes (nOut):\"\>", 
-          InterpretationBox[
-           StyleBox[GridBox[{
-              {
-               SetterBox[Dynamic[$CellContext`nOut$$], {1}, "1"], 
-               SetterBox[Dynamic[$CellContext`nOut$$], {2}, "2"], 
-               SetterBox[Dynamic[$CellContext`nOut$$], {3}, "3"], 
-               SetterBox[Dynamic[$CellContext`nOut$$], {4}, "4"], 
-               SetterBox[Dynamic[$CellContext`nOut$$], {5}, "5"], 
-               SetterBox[Dynamic[$CellContext`nOut$$], {6}, "6"]}
-             },
-             BaselinePosition->{1, 1},
-             GridBoxSpacings->{"Columns" -> {
-                 Offset[0.27999999999999997`], {
-                  Offset[0.]}, 
-                 Offset[0.27999999999999997`]}, "Rows" -> {
-                 Offset[0.2], {
-                  Offset[0.4]}, 
-                 Offset[0.2]}}],
-            Deployed->True],
-           SetterBar[
-            Dynamic[$CellContext`nOut$$], {1, 2, 3, 4, 5, 6}]]}
-        },
-        AutoDelete->False,
-        GridBoxAlignment->{"Columns" -> {{Left}}},
-        GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
-        GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{1}}}],
-       "Grid"]},
-     {
-      StyleBox["\<\"Entrantes\"\>",
-       StripOnInput->False,
-       FontSize->12,
-       FontWeight->Bold]},
-     {
-      TemplateBox[{"\"Categor\[IAcute]a in: \"", 
-        PopupMenuBox[
-         Dynamic[$CellContext`catIn$$, ($CellContext`catIn$$ = #; \
-$CellContext`pickIn$$ = ConstantArray[None, 6])& ], {
-         "Leptones" -> "\"Leptones\"", "Neutrinos" -> "\"Neutrinos\"", 
-          "Quarks" -> "\"Quarks\"", "Vectores" -> "\"Vectores\"", "Escalares" -> 
-          "\"Escalares\"", "Fantasmas" -> "\"Fantasmas\""}]},
-       "RowDefault"]},
-     {
-      DynamicBox[ToBoxes[
-        Grid[
-         Table[
-          
-          With[{$CellContext`k$ = $CellContext`i}, {
-           "in[" <> ToString[$CellContext`k$] <> "]", 
-            PopupMenu[
-             Dynamic[
-              Part[$CellContext`pickIn$$, $CellContext`k$]], 
-             $CellContext`menuRules[$CellContext`catIn$$], FieldSize -> 
-             45]}], {$CellContext`i, 1, $CellContext`nIn$$}], Alignment -> 
-         Left], StandardForm],
-       ImageSizeCache->{
-        481.57207198143004`, {27.110009660501966`, 32.84194346449804}},
-       TrackedSymbols:>{$CellContext`catIn$$, $CellContext`nIn$$, \
-$CellContext`pickIn$$}]},
-     {
-      TemplateBox[{8},
-       "Spacer1"]},
-     {
-      StyleBox["\<\"Salientes\"\>",
-       StripOnInput->False,
-       FontSize->12,
-       FontWeight->Bold]},
-     {
-      TemplateBox[{"\"Categor\[IAcute]a out: \"", 
-        PopupMenuBox[
-         Dynamic[$CellContext`catOut$$, ($CellContext`catOut$$ = #; \
-$CellContext`pickOut$$ = ConstantArray[None, 6])& ], {
-         "Leptones" -> "\"Leptones\"", "Neutrinos" -> "\"Neutrinos\"", 
-          "Quarks" -> "\"Quarks\"", "Vectores" -> "\"Vectores\"", "Escalares" -> 
-          "\"Escalares\"", "Fantasmas" -> "\"Fantasmas\""}]},
-       "RowDefault"]},
-     {
-      DynamicBox[ToBoxes[
-        Grid[
-         Table[
-          
-          With[{$CellContext`k$ = $CellContext`i}, {
-           "out[" <> ToString[$CellContext`k$] <> "]", 
-            PopupMenu[
-             Dynamic[
-              Part[$CellContext`pickOut$$, $CellContext`k$]], 
-             $CellContext`menuRules[$CellContext`catOut$$], FieldSize -> 
-             45]}], {$CellContext`i, 1, $CellContext`nOut$$}], Alignment -> 
-         Left], StandardForm],
-       ImageSizeCache->{
-        488.7195331573486, {27.110009660501966`, 32.84194346449804}},
-       TrackedSymbols:>{$CellContext`catOut$$, $CellContext`nOut$$, \
-$CellContext`pickOut$$}]},
-     {
-      TemplateBox[{10},
-       "Spacer1"]},
-     {
-      TemplateBox[{
-        ButtonBox[
-         DynamicBox[
-          ToBoxes[
-           
-           If[$CellContext`running$$, "Generando\[Ellipsis]", 
-            "Generar diagramas"], StandardForm]], ButtonFunction :> 
-         If[$CellContext`running$$, Null, 
-           
-           Module[{$CellContext`inList$, $CellContext`outList$, \
-$CellContext`top$, $CellContext`tmp$, $CellContext`img$}, \
-$CellContext`running$$ = True; NotebookDelete[
-              Cells[CellStyle -> "Print"]]; NotebookDelete[
-              Cells[CellStyle -> "Message"]]; $CellContext`diags$$ = 
-             None; $CellContext`paintImg$$ = None; $CellContext`inList$ = 
-             Take[$CellContext`pickIn$$, $CellContext`nIn$$]; \
-$CellContext`outList$ = Take[$CellContext`pickOut$$, $CellContext`nOut$$]; If[
-              Or[
-               MemberQ[$CellContext`inList$, None], 
-               MemberQ[$CellContext`outList$, None]], $CellContext`status$$ = 
-               Style["Selecciona todas las part\[IAcute]culas en in y out.", 
-                 Red]; $CellContext`running$$ = False; Return[]; 
-              Null]; $CellContext`status$$ = 
-             "CreateTopologies + InsertFields\[Ellipsis]"; $CellContext`tmp$ = 
-             TimeConstrained[
-               Quiet[
-                
-                Check[$CellContext`top$ = 
-                  FeynArts`CreateTopologies[$CellContext`loopOrder$$, \
-$CellContext`nIn$$ -> $CellContext`nOut$$]; 
-                 FeynArts`InsertFields[$CellContext`top$, \
-$CellContext`inList$ -> $CellContext`outList$, 
-                   FeynArts`InsertionLevel -> $CellContext`insertion$$, 
-                   FeynArts`Model -> $CellContext`modelName$$, 
-                   FeynArts`GenericModel -> $CellContext`genName$$], \
-$Failed]], 60, $TimedOut]; If[
-              
-              Or[$CellContext`tmp$ === $TimedOut, $CellContext`tmp$ === \
-$Failed, $CellContext`tmp$ === $Aborted], $CellContext`status$$ = 
-               Style["Fallo/timeout generando diagramas. Revisa el \
-proceso/modelo.", Red]; $CellContext`running$$ = False; Return[]; 
-              Null]; $CellContext`diags$$ = $CellContext`tmp$; \
-$CellContext`status$$ = "Pintando\[Ellipsis]"; $CellContext`img$ = 
-             TimeConstrained[
-               Quiet[
-                Check[
-                 Rasterize[
-                  
-                  FeynArts`Paint[$CellContext`diags$$, FeynArts`Numbering -> 
-                   FeynArts`Simple, FeynArts`SheetHeader -> None, 
-                   FeynArts`ColumnsXRows -> {3, 2}, ImageSize -> {760, 420}], 
-                  "Image"], $Failed]], 30, $TimedOut]; If[
-              
-              Or[$CellContext`img$ === $TimedOut, $CellContext`img$ === \
-$Failed], $CellContext`paintImg$$ = None; $CellContext`status$$ = 
-               "Diagramas generados (sin preview).", $CellContext`paintImg$$ = \
-$CellContext`img$; $CellContext`status$$ = 
-               "OK: diagramas generados."]; $CellContext`running$$ = False; 
-            Null]], Method -> "Queued", Appearance -> Automatic, Evaluator -> 
-         Automatic], 
-        TemplateBox[{10}, "Spacer1"], 
-        ButtonBox["\"Reset/Limpiar\"", ButtonFunction :> (NotebookDelete[
-            Cells[CellStyle -> "Print"]]; NotebookDelete[
-            Cells[CellStyle -> "Message"]]; $CellContext`diags$$ = 
-           None; $CellContext`paintImg$$ = None; $CellContext`pickIn$$ = 
-           ConstantArray[None, 6]; $CellContext`pickOut$$ = 
-           ConstantArray[None, 6]; $CellContext`status$$ = "Listo."; Null), 
-         Appearance -> Automatic, Evaluator -> Automatic, Method -> 
-         "Preemptive"]},
-       "RowDefault"]},
-     {"Delimiter"},
-     {
-      DynamicBox[ToBoxes[$CellContext`status$$, StandardForm],
-       ImageSizeCache->{
-        42.884767055511475`, {0.11425781669095159`, 9.045410488033667}}]},
-     {
-      DynamicBox[ToBoxes[
-        If[$CellContext`paintImg$$ === None, Nothing, 
-         Column[{
-           Style["Vista previa:", 12, Bold], $CellContext`paintImg$$}]], 
-        StandardForm],
-       ImageSizeCache->{
-        50.032228231430054`, {2.6660157227888703`, 9.045410488033667}},
-       TrackedSymbols:>{$CellContext`paintImg$$}]},
-     {
-      DynamicBox[ToBoxes[
-        Column[{
-          Style["(Debug) in/out internos:", 11, Italic], "in  = " <> ToString[
-            Take[$CellContext`pickIn$$, $CellContext`nIn$$], InputForm], 
-          "out = " <> ToString[
-            Take[$CellContext`pickOut$$, $CellContext`nOut$$], InputForm]}], 
-        StandardForm],
-       ImageSizeCache->{
-        146.80811619758606`, {19.78691459754482, 25.51884840154089}},
-       TrackedSymbols:>{$CellContext`pickIn$$, $CellContext`pickOut$$, \
-$CellContext`nIn$$, $CellContext`nOut$$}]}
-    },
-    DefaultBaseStyle->"Column",
-    GridBoxAlignment->{"Columns" -> {{Left}}},
-    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
-    GridBoxSpacings->{"Columns" -> {{Automatic}}, "Rows" -> {{1.2}}}],
-   "Column"],
-  DynamicModuleValues:>{}]], "Output",
+ FormBox["$Aborted", TraditionalForm]], "Output",
  CellChangeTimes->{
   3.981217143565836*^9, 3.9812174147594013`*^9, {3.9812177934998035`*^9, 
    3.9812178225593376`*^9}, 3.981217973002922*^9, 3.9812182725067825`*^9, {
@@ -1179,16 +1094,501 @@ $CellContext`nIn$$, $CellContext`nOut$$}]}
    3.98121915635627*^9, 3.981219256458929*^9, 3.9812194790205154`*^9, 
    3.981219688076149*^9, {3.981219784243948*^9, 3.9812197966534805`*^9}, 
    3.9812204835106297`*^9, {3.9812205353497314`*^9, 3.9812205464498844`*^9}, 
-   3.9812206594249725`*^9, 3.9812209934102154`*^9, 3.9812216386324444`*^9},
- CellLabel->"Out[10]=",ExpressionUUID->"d254c68c-1c25-c045-9d10-a4859e3b1781"]
+   3.9812206594249725`*^9, 3.9812209934102154`*^9, 3.9812216386324444`*^9, 
+   3.981291760641981*^9, 3.9812969914052486`*^9, {3.981297347049288*^9, 
+   3.981297443421007*^9}, 3.9812975165130215`*^9, 3.9812975572504253`*^9, 
+   3.9812975885163097`*^9, {3.981297707926071*^9, 3.981297737811676*^9}, 
+   3.981298035439686*^9, 3.981298166766142*^9, 3.9812982533057976`*^9, 
+   3.981298725788784*^9, 3.9812987999191265`*^9, 3.981300387785717*^9, 
+   3.981300462442091*^9, 3.981300507903591*^9, {3.981300750308857*^9, 
+   3.981300774120699*^9}, 3.9813010186338634`*^9, {3.98130115399189*^9, 
+   3.9813011605294247`*^9}, 3.981301219251816*^9, 3.981301354805853*^9, 
+   3.981301607346384*^9, 3.9813017018047314`*^9, 3.9813018827261353`*^9, 
+   3.981301980754505*^9, 3.9813020197485237`*^9, 3.9813021404205265`*^9, 
+   3.98130217978261*^9, 3.98130231452252*^9, 3.9813023753750515`*^9, 
+   3.9813026157016487`*^9, 3.9813026540713654`*^9, 3.9813027115474377`*^9, 
+   3.9813028321024895`*^9, {3.9813029520554276`*^9, 3.9813029651185417`*^9}, 
+   3.9813031923967915`*^9, 3.981303232049206*^9, 3.981303404288389*^9, 
+   3.9813036025217876`*^9, 3.9813042923206425`*^9, 3.981304353101055*^9, 
+   3.981304412494362*^9, 3.9813044565236073`*^9, 3.9813044967361946`*^9, 
+   3.981304770947336*^9, 3.981305850407892*^9, {3.9813059397945175`*^9, 
+   3.9813059668718166`*^9}, 3.981306151268755*^9, 3.981306211100237*^9, {
+   3.9813062432913704`*^9, 3.981306270176363*^9}, 3.981306307362648*^9, 
+   3.9813064040518*^9, {3.981306518594988*^9, 3.9813065297685814`*^9}, 
+   3.981306562429388*^9, {3.981306735007305*^9, 3.981306746688095*^9}, 
+   3.9813068002183266`*^9, 3.9813068858457947`*^9},
+ CellLabel->
+  "Out[114]=",ExpressionUUID->"db11225e-ff2e-0a46-be09-28c7696129b1"],
+
+Cell[BoxData[
+ FormBox[
+  DynamicModuleBox[{$CellContext`modelName$$ = 
+   "SMEFTsimtopU3l", $CellContext`genName$$ = 
+   "SMEFTsimtopU3l", $CellContext`insertion$$ = {
+   FeynArts`Particles}, $CellContext`loopOrder$$ = 0, $CellContext`nIn$$ = 
+   2, $CellContext`nOut$$ = 2, $CellContext`catIn$$ = 
+   "Leptones", $CellContext`catOut$$ = "Quarks", $CellContext`pickIn$$ = {
+   None, None, None, None, None, None}, $CellContext`pickOut$$ = {
+   None, None, None, None, None, None}, $CellContext`running$$ = 
+   False, $CellContext`statusDiag$$ = Style[
+   "No hay diagramas para exportar (genera primero).", 
+    RGBColor[1, 0, 0]], $CellContext`statusAmp$$ = Style[
+   "Primero genera los diagramas.", 
+    RGBColor[1, 0, 0]], $CellContext`logDiags$$ = {}, $CellContext`diags$$ = 
+   None, $CellContext`paintImg$$ = None, $CellContext`paintG$$ = 
+   None, $CellContext`ampFA$$ = None, $CellContext`ampFC$$ = 
+   None, $CellContext`showAmp$$ = False}, 
+   TagBox[GridBox[{
+      {
+       StyleBox["\<\"Generador de diagramas\"\>",
+        StripOnInput->False,
+        FontSize->16,
+        FontWeight->Bold]},
+      {
+       TagBox[GridBox[{
+          {"\<\"Model\"\>", 
+           InputFieldBox[Dynamic[$CellContext`modelName$$], String,
+            FieldSize->22], "\<\"GenericModel\"\>", 
+           InputFieldBox[Dynamic[$CellContext`genName$$], String,
+            FieldSize->22]},
+          {"\<\"InsertionLevel\"\>", 
+           
+           PopupMenuBox[Dynamic[$CellContext`insertion$$], {{
+            FeynArts`Particles}->"\<\"{Particles}\"\>", {
+            FeynArts`Classes}->"\<\"{Classes}\"\>"}], "\<\"LoopOrder\"\>", 
+           
+           PopupMenuBox[Dynamic[$CellContext`loopOrder$$], {
+            0->"\<\"0 (\[AAcute]rbol)\"\>", 1->"\<\"1 (1-loop)\"\>"}]}
+         },
+         AutoDelete->False,
+         GridBoxAlignment->{"Columns" -> {{Left}}},
+         GridBoxItemSize->{
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+         GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{1}}}],
+        "Grid"]},
+      {"Delimiter"},
+      {
+       TagBox[GridBox[{
+          {"\<\"# Entrantes (nIn):\"\>", 
+           InterpretationBox[
+            StyleBox[GridBox[{
+               {
+                SetterBox[Dynamic[$CellContext`nIn$$], {1}, "1"], 
+                SetterBox[Dynamic[$CellContext`nIn$$], {2}, "2"], 
+                SetterBox[Dynamic[$CellContext`nIn$$], {3}, "3"], 
+                SetterBox[Dynamic[$CellContext`nIn$$], {4}, "4"]}
+              },
+              BaselinePosition->{1, 1},
+              GridBoxSpacings->{"Columns" -> {
+                  Offset[0.27999999999999997`], {
+                   Offset[0.]}, 
+                  Offset[0.27999999999999997`]}, "Rows" -> {
+                  Offset[0.2], {
+                   Offset[0.4]}, 
+                  Offset[0.2]}}],
+             Deployed->True],
+            SetterBar[
+             Dynamic[$CellContext`nIn$$], {1, 2, 3, 4}]]},
+          {"\<\"# Salientes (nOut):\"\>", 
+           InterpretationBox[
+            StyleBox[GridBox[{
+               {
+                SetterBox[Dynamic[$CellContext`nOut$$], {1}, "1"], 
+                SetterBox[Dynamic[$CellContext`nOut$$], {2}, "2"], 
+                SetterBox[Dynamic[$CellContext`nOut$$], {3}, "3"], 
+                SetterBox[Dynamic[$CellContext`nOut$$], {4}, "4"], 
+                SetterBox[Dynamic[$CellContext`nOut$$], {5}, "5"], 
+                SetterBox[Dynamic[$CellContext`nOut$$], {6}, "6"]}
+              },
+              BaselinePosition->{1, 1},
+              GridBoxSpacings->{"Columns" -> {
+                  Offset[0.27999999999999997`], {
+                   Offset[0.]}, 
+                  Offset[0.27999999999999997`]}, "Rows" -> {
+                  Offset[0.2], {
+                   Offset[0.4]}, 
+                  Offset[0.2]}}],
+             Deployed->True],
+            SetterBar[
+             Dynamic[$CellContext`nOut$$], {1, 2, 3, 4, 5, 6}]]}
+         },
+         AutoDelete->False,
+         GridBoxAlignment->{"Columns" -> {{Left}}},
+         GridBoxItemSize->{
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+         GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{1}}}],
+        "Grid"]},
+      {
+       StyleBox["\<\"Entrantes\"\>",
+        StripOnInput->False,
+        FontSize->12,
+        FontWeight->Bold]},
+      {
+       TemplateBox[{"\"Categor\[IAcute]a in: \"", 
+         PopupMenuBox[
+          
+          Dynamic[$CellContext`catIn$$, ($CellContext`catIn$$ = #; \
+$CellContext`pickIn$$ = ConstantArray[None, 6])& ], {
+          "Leptones" -> "\"Leptones\"", "Neutrinos" -> "\"Neutrinos\"", 
+           "Quarks" -> "\"Quarks\"", "Vectores" -> "\"Vectores\"", 
+           "Escalares" -> "\"Escalares\"", "Fantasmas" -> "\"Fantasmas\""}]},
+        "RowDefault"]},
+      {
+       DynamicBox[ToBoxes[
+         Grid[
+          Table[
+           
+           With[{$CellContext`k$ = $CellContext`i}, {
+            "in[" <> ToString[$CellContext`k$] <> "]", 
+             PopupMenu[
+              Dynamic[
+               Part[$CellContext`pickIn$$, $CellContext`k$]], 
+              $CellContext`menuRules[$CellContext`catIn$$], FieldSize -> 
+              45]}], {$CellContext`i, 1, $CellContext`nIn$$}], Alignment -> 
+          Left], TraditionalForm],
+        ImageSizeCache->{469.1311261177063, {26.891015625, 33.0609375}},
+        TrackedSymbols:>{$CellContext`catIn$$, $CellContext`nIn$$, \
+$CellContext`pickIn$$}]},
+      {
+       TemplateBox[{8},
+        "Spacer1"]},
+      {
+       StyleBox["\<\"Salientes\"\>",
+        StripOnInput->False,
+        FontSize->12,
+        FontWeight->Bold]},
+      {
+       TemplateBox[{"\"Categor\[IAcute]a out: \"", 
+         PopupMenuBox[
+          
+          Dynamic[$CellContext`catOut$$, ($CellContext`catOut$$ = #; \
+$CellContext`pickOut$$ = ConstantArray[None, 6])& ], {
+          "Leptones" -> "\"Leptones\"", "Neutrinos" -> "\"Neutrinos\"", 
+           "Quarks" -> "\"Quarks\"", "Vectores" -> "\"Vectores\"", 
+           "Escalares" -> "\"Escalares\"", "Fantasmas" -> "\"Fantasmas\""}]},
+        "RowDefault"]},
+      {
+       DynamicBox[ToBoxes[
+         Grid[
+          Table[
+           
+           With[{$CellContext`k$ = $CellContext`i}, {
+            "out[" <> ToString[$CellContext`k$] <> "]", 
+             PopupMenu[
+              Dynamic[
+               Part[$CellContext`pickOut$$, $CellContext`k$]], 
+              $CellContext`menuRules[$CellContext`catOut$$], FieldSize -> 
+              45]}], {$CellContext`i, 1, $CellContext`nOut$$}], Alignment -> 
+          Left], TraditionalForm],
+        ImageSizeCache->{475.65016888454556`, {26.891015625, 33.0609375}},
+        TrackedSymbols:>{$CellContext`catOut$$, $CellContext`nOut$$, \
+$CellContext`pickOut$$}]},
+      {
+       TemplateBox[{10},
+        "Spacer1"]},
+      {
+       TemplateBox[{
+         ButtonBox[
+          DynamicBox[
+           ToBoxes[
+            
+            If[$CellContext`running$$, "Generando\[Ellipsis]", 
+             "Generar diagramas"], TraditionalForm]], ButtonFunction :> 
+          If[$CellContext`running$$, Null, 
+            
+            Module[{$CellContext`inList$, $CellContext`outList$, \
+$CellContext`top$, $CellContext`tmp$, $CellContext`img$}, \
+$CellContext`running$$ = True; NotebookDelete[
+               Cells[CellStyle -> "Print"]]; NotebookDelete[
+               Cells[CellStyle -> "Message"]]; $CellContext`diags$$ = 
+              None; $CellContext`paintImg$$ = None; $CellContext`inList$ = 
+              Take[$CellContext`pickIn$$, $CellContext`nIn$$]; \
+$CellContext`outList$ = Take[$CellContext`pickOut$$, $CellContext`nOut$$]; If[
+               Or[
+                MemberQ[$CellContext`inList$, None], 
+                
+                MemberQ[$CellContext`outList$, 
+                 None]], $CellContext`statusDiag$$ = 
+                Style["Selecciona todas las part\[IAcute]culas en in y out.", 
+                  Red]; $CellContext`running$$ = False; Return[]; 
+               Null]; $CellContext`statusDiag$$ = 
+              "CreateTopologies + InsertFields\[Ellipsis]"; $CellContext`tmp$ = 
+              TimeConstrained[
+                Quiet[
+                 
+                 Check[$CellContext`top$ = 
+                   FeynArts`CreateTopologies[$CellContext`loopOrder$$, \
+$CellContext`nIn$$ -> $CellContext`nOut$$]; 
+                  FeynArts`InsertFields[$CellContext`top$, \
+$CellContext`inList$ -> $CellContext`outList$, 
+                    FeynArts`InsertionLevel -> $CellContext`insertion$$, 
+                    FeynArts`Model -> $CellContext`modelName$$, 
+                    FeynArts`GenericModel -> $CellContext`genName$$], \
+$Failed]], 60, $TimedOut]; If[
+               
+               Or[$CellContext`tmp$ === $TimedOut, $CellContext`tmp$ === \
+$Failed, $CellContext`tmp$ === $Aborted], $CellContext`statusDiag$$ = 
+                Style["Fallo/timeout generando diagramas. Revisa el \
+proceso/modelo.", Red]; $CellContext`running$$ = False; Return[]; 
+               Null]; $CellContext`diags$$ = $CellContext`tmp$; \
+$CellContext`statusDiag$$ = "Pintando\[Ellipsis]"; $CellContext`paintG$$ = 
+              TimeConstrained[
+                Quiet[
+                 Check[
+                  
+                  FeynArts`Paint[$CellContext`diags$$, FeynArts`Numbering -> 
+                   FeynArts`Simple, FeynArts`SheetHeader -> None, 
+                   FeynArts`ColumnsXRows -> {3, 2}, ImageSize -> 
+                   800], $Failed]], 30, $TimedOut]; If[
+               
+               Or[$CellContext`paintG$$ === $TimedOut, $CellContext`paintG$$ === \
+$Failed], $CellContext`paintG$$ = None; $CellContext`paintImg$$ = 
+                None; $CellContext`statusDiag$$ = 
+                "Diagramas generados (sin preview).", $CellContext`paintImg$$ = 
+                Quiet[
+                  Check[
+                   Rasterize[$CellContext`paintG$$, "Image"], $Failed]]; 
+               If[$CellContext`paintImg$$ === $Failed, \
+$CellContext`paintImg$$ = None]; $CellContext`statusDiag$$ = 
+                Style["Diagramas generados. (salen al final)", 
+                  Green]]; $CellContext`running$$ = False; Null]], Method -> 
+          "Queued", Appearance -> Automatic, Evaluator -> Automatic], 
+         TemplateBox[{10}, "Spacer1"], 
+         ButtonBox["\"Reset/Limpiar\"", ButtonFunction :> (NotebookDelete[
+             Cells[CellStyle -> "Print"]]; NotebookDelete[
+             Cells[CellStyle -> "Message"]]; $CellContext`diags$$ = 
+            None; $CellContext`paintImg$$ = None; $CellContext`paintG$$ = 
+            None; $CellContext`pickIn$$ = 
+            ConstantArray[None, 6]; $CellContext`pickOut$$ = 
+            ConstantArray[None, 6]; $CellContext`statusDiag$$ = 
+            Style["Diagramas reseteados.", Orange]; Null), Appearance -> 
+          Automatic, Evaluator -> Automatic, Method -> "Preemptive"], 
+         TemplateBox[{10}, "Spacer1"], 
+         ButtonBox[
+         "\"Exportar diagramas a PDF\"", ButtonFunction :> 
+          Module[{$CellContext`path$, $CellContext`g$}, 
+            If[$CellContext`diags$$ === 
+              None, $CellContext`statusDiag$$ = 
+               Style["No hay diagramas para exportar (genera primero).", Red]; 
+              Return[]; Null]; $CellContext`path$ = 
+             SystemDialogInput["FileSave", "diagramas.pdf"]; 
+            If[$CellContext`path$ === $Canceled, 
+              Return[]]; $CellContext`statusDiag$$ = 
+             "Exportando a PDF\[Ellipsis]"; $CellContext`g$ = 
+             FeynArts`Paint[$CellContext`diags$$, FeynArts`Numbering -> 
+               FeynArts`Simple, FeynArts`SheetHeader -> None, 
+               FeynArts`ColumnsXRows -> {3, 2}, ImageSize -> 800]; Quiet[
+              Check[
+               
+               Export[$CellContext`path$, $CellContext`g$, 
+                "PDF"], $CellContext`statusDiag$$ = 
+                Style["Error exportando a PDF.", Red]; Return[]; 
+               Null]]; $CellContext`statusDiag$$ = 
+             Style["PDF exportado: " <> ToString[$CellContext`path$], Green]; 
+            Null], Method -> "Queued", Appearance -> Automatic, Evaluator -> 
+          Automatic]},
+        "RowDefault"]},
+      {"Delimiter"},
+      {
+       DynamicBox[ToBoxes[$CellContext`statusDiag$$, TraditionalForm],
+        ImageSizeCache->{
+         260.3422800600529, {2.8056639801710848`, 9.02636692263186}}]},
+      {
+       TemplateBox[{15},
+        "Spacer1"]},
+      {
+       DynamicBox[ToBoxes[
+         If[
+          
+          And[$CellContext`paintG$$ === None, $CellContext`paintImg$$ === 
+           None], 
+          Column[{
+            Style["Vista previa de los diagramas:", 12, Bold], 
+            
+            If[$CellContext`paintImg$$ === 
+             None, $CellContext`paintImg$$, $CellContext`paintG$$], {830, 
+            450}, Scrollbars -> True}], Nothing], TraditionalForm],
+        ImageSizeCache->{
+         155.326171875, {28.379100868105887`, 34.549022743105894`}},
+        TrackedSymbols:>{$CellContext`paintG$$, $CellContext`paintImg$$}]},
+      {
+       TagBox[GridBox[{
+          {
+           StyleBox["\<\"Generador de amplitudes\"\>",
+            StripOnInput->False,
+            FontSize->16,
+            FontWeight->Bold]},
+          {
+           TagBox[GridBox[{
+              {"\<\"Visualizar la amplitud:\"\>", 
+               
+               PopupMenuBox[Dynamic[$CellContext`showAmp$$], {
+                True->"\<\"S\[IAcute]\"\>", False->"\<\"No\"\>"}]}
+             },
+             AutoDelete->False,
+             GridBoxAlignment->{"Columns" -> {{Left}}},
+             
+             GridBoxItemSize->{
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+             GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{1}}}],
+            "Grid"]},
+          {
+           TemplateBox[{10},
+            "Spacer1"]},
+          {
+           ButtonBox["\<\"Calcular amplitud\"\>",
+            Appearance->Automatic,
+            
+            ButtonFunction:>
+             Module[{$CellContext`tmpFA$, $CellContext`tmpFC$}, 
+              If[$CellContext`diags$$ === 
+                None, $CellContext`statusAmp$$ = 
+                 Style["Primero genera los diagramas.", Red]; Return[]; 
+                Null]; $CellContext`statusAmp$$ = 
+               "Calculando amplitud..."; $CellContext`ampFA$$ = 
+               None; $CellContext`ampFC$$ = None; $CellContext`tmpFA$ = 
+               TimeConstrained[
+                 Quiet[
+                  Check[
+                   FeynArts`CreateFeynAmp[$CellContext`diags$$], $Failed]], 
+                 1200, $TimedOut]; If[
+                
+                Or[$CellContext`tmpFA$ === $TimedOut, $CellContext`tmpFA$ === \
+$Failed, $CellContext`tmpFA$ === $Aborted], $CellContext`statusAmp$$ = 
+                 Style["Fallo en CreateFeynAmp.", Red]; Return[]; 
+                Null]; $CellContext`ampFA$$ = $CellContext`tmpFA$; \
+$CellContext`tmpFC$ = TimeConstrained[
+                 Quiet[
+                  Check[
+                   FeynCalc`FCI[
+                    
+                    FeynCalc`FCFAConvert[$CellContext`ampFA$$, 
+                    FeynCalc`IncomingMomenta -> {$CellContext`p1, \
+$CellContext`p2}, 
+                    FeynCalc`OutgoingMomenta -> {$CellContext`p3, \
+$CellContext`p4}, FeynCalc`ChangeDimension -> 4, 
+                    FeynCalc`UndoChiralSplittings -> True, 
+                    FeynCalc`DropIndexSum -> False, List -> False, 
+                    FeynCalc`FCFADiracChainJoin -> False]], $Failed]], 
+                 1200, $TimedOut]; If[
+                
+                Or[$CellContext`tmpFC$ === $TimedOut, $CellContext`tmpFC$ === \
+$Failed, $CellContext`tmpFC$ === $Aborted], $CellContext`statusAmp$$ = 
+                 Style["Fallo en FCFAConvert.", Red]; Return[]; 
+                Null]; $CellContext`ampFC$$ = $CellContext`tmpFC$; \
+$CellContext`statusAmp$$ = Style["Amplitud calculada.", Green]; Null],
+            Evaluator->Automatic,
+            Method->"Queued"]},
+          {
+           TemplateBox[{10},
+            "Spacer1"]},
+          {
+           ButtonBox["\<\"Resetear/Limpiar\"\>",
+            Appearance->Automatic,
+            
+            ButtonFunction:>($CellContext`ampFA$$ = 
+              None; $CellContext`ampFC$$ = None; $CellContext`showAmp$$ = 
+              False; $CellContext`statusAmp$$ = 
+              Style["Amplitud reseteada.", Orange]; Null),
+            Evaluator->Automatic,
+            Method->"Preemptive"]},
+          {
+           TemplateBox[{15},
+            "Spacer1"]},
+          {
+           DynamicBox[ToBoxes[
+             If[
+              And[$CellContext`showAmp$$, $CellContext`ampFC$$ =!= None], 
+              Column[{
+                Style["Amplitud completa:", 12, Bold], 
+                Pane[$CellContext`ampFC$$, {800, 300}, Scrollbars -> True]}], 
+              Nothing], TraditionalForm],
+            
+            ImageSizeCache->{
+             42.78320216629654, {2.8056639801710848`, 9.02636692263186}},
+            TrackedSymbols:>{$CellContext`showAmp$$, $CellContext`ampFC$$}]}
+         },
+         DefaultBaseStyle->"Column",
+         GridBoxAlignment->{"Columns" -> {{Left}}},
+         GridBoxItemSize->{
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+        "Column"]},
+      {"Delimiter"},
+      {
+       DynamicBox[ToBoxes[$CellContext`statusAmp$$, TraditionalForm],
+        ImageSizeCache->{
+         158.11376581192016`, {2.8056639801710848`, 9.02636692263186}}]},
+      {
+       DynamicBox[ToBoxes[
+         Column[{
+           Style["(Debug) in/out internos:", 11, Italic], "in  = " <> ToString[
+             Take[$CellContext`pickIn$$, $CellContext`nIn$$], InputForm], 
+           "out = " <> ToString[
+             Take[$CellContext`pickOut$$, $CellContext`nOut$$], InputForm]}], 
+         TraditionalForm],
+        ImageSizeCache->{
+         107.52685805596411`, {19.863085416704415`, 26.033007291704415`}},
+        TrackedSymbols:>{$CellContext`pickIn$$, $CellContext`pickOut$$, \
+$CellContext`nIn$$, $CellContext`nOut$$}]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{"Columns" -> {{Left}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+     GridBoxSpacings->{"Columns" -> {{Automatic}}, "Rows" -> {{1.2}}}],
+    "Column"],
+   DynamicModuleValues:>{}], TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.981217143565836*^9, 3.9812174147594013`*^9, {3.9812177934998035`*^9, 
+   3.9812178225593376`*^9}, 3.981217973002922*^9, 3.9812182725067825`*^9, {
+   3.9812188325205708`*^9, 3.9812188824057407`*^9}, 3.981218922510334*^9, 
+   3.981218988508396*^9, 3.9812190353551655`*^9, 3.9812190971116505`*^9, 
+   3.98121915635627*^9, 3.981219256458929*^9, 3.9812194790205154`*^9, 
+   3.981219688076149*^9, {3.981219784243948*^9, 3.9812197966534805`*^9}, 
+   3.9812204835106297`*^9, {3.9812205353497314`*^9, 3.9812205464498844`*^9}, 
+   3.9812206594249725`*^9, 3.9812209934102154`*^9, 3.9812216386324444`*^9, 
+   3.981291760641981*^9, 3.9812969914052486`*^9, {3.981297347049288*^9, 
+   3.981297443421007*^9}, 3.9812975165130215`*^9, 3.9812975572504253`*^9, 
+   3.9812975885163097`*^9, {3.981297707926071*^9, 3.981297737811676*^9}, 
+   3.981298035439686*^9, 3.981298166766142*^9, 3.9812982533057976`*^9, 
+   3.981298725788784*^9, 3.9812987999191265`*^9, 3.981300387785717*^9, 
+   3.981300462442091*^9, 3.981300507903591*^9, {3.981300750308857*^9, 
+   3.981300774120699*^9}, 3.9813010186338634`*^9, {3.98130115399189*^9, 
+   3.9813011605294247`*^9}, 3.981301219251816*^9, 3.981301354805853*^9, 
+   3.981301607346384*^9, 3.9813017018047314`*^9, 3.9813018827261353`*^9, 
+   3.981301980754505*^9, 3.9813020197485237`*^9, 3.9813021404205265`*^9, 
+   3.98130217978261*^9, 3.98130231452252*^9, 3.9813023753750515`*^9, 
+   3.9813026157016487`*^9, 3.9813026540713654`*^9, 3.9813027115474377`*^9, 
+   3.9813028321024895`*^9, {3.9813029520554276`*^9, 3.9813029651185417`*^9}, 
+   3.9813031923967915`*^9, 3.981303232049206*^9, 3.981303404288389*^9, 
+   3.9813036025217876`*^9, 3.9813042923206425`*^9, 3.981304353101055*^9, 
+   3.981304412494362*^9, 3.9813044565236073`*^9, 3.9813044967361946`*^9, 
+   3.981304770947336*^9, 3.981305850407892*^9, {3.9813059397945175`*^9, 
+   3.9813059668718166`*^9}, 3.981306151268755*^9, 3.981306211100237*^9, {
+   3.9813062432913704`*^9, 3.981306270176363*^9}, 3.981306307362648*^9, 
+   3.9813064040518*^9, {3.981306518594988*^9, 3.9813065297685814`*^9}, 
+   3.981306562429388*^9, {3.981306735007305*^9, 3.981306746688095*^9}, 
+   3.9813068002183266`*^9, 3.981306885882862*^9},
+ CellLabel->
+  "Out[128]=",ExpressionUUID->"21bbe456-d929-3741-b2f4-df30056c2cc7"]
 }, Open  ]],
 
 Cell[BoxData["\[IndentingNewLine]"], "Input",
  CellChangeTimes->{{3.9812178034421444`*^9, 
   3.9812178152724476`*^9}},ExpressionUUID->"c2561e82-3f4a-fc47-8085-\
-38b671f6b222"]
+38b671f6b222"],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{{3.9812966141156254`*^9, 3.98129662897674*^9}, 
+   3.981296684196823*^9},ExpressionUUID->"902395e1-9e33-8e40-a798-\
+6045f676635d"],
+
+Cell[BoxData[
+ FormBox["", TraditionalForm]], "Input",
+ CellChangeTimes->{{3.981306411254431*^9, 
+  3.981306411255436*^9}},ExpressionUUID->"a43d47e6-07c1-bc4f-b087-\
+709f67fe9281"]
 },
-WindowSize->{1428, 735.75},
+WindowSize->{1141.2, 573.6},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
 FrontEndVersion->"14.3 para Microsoft Windows (64-bit) (July 8, 2025)",
 StyleDefinitions->"Default.nb",
@@ -1206,18 +1606,13 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[576, 22, 28975, 675, 1270, "Input",ExpressionUUID->"abb37261-e3cc-464b-abea-40502ce93d5c"],
-Cell[CellGroupData[{
-Cell[29576, 701, 3828, 99, 26, "Print",ExpressionUUID->"26af575e-62b1-a343-bdb0-8d283d638d24"],
-Cell[33407, 802, 537, 10, 26, "Print",ExpressionUUID->"5a2b3685-a0e4-ae4b-a6a9-ea703334ccdb"],
-Cell[33947, 814, 581, 12, 26, "Print",ExpressionUUID->"194aae71-6bb0-984a-a8f5-f229ef6347e9"],
-Cell[34531, 828, 2137, 58, 26, "Print",ExpressionUUID->"21c27c97-09ed-cc49-9716-d2ac037c5e8c"],
-Cell[36671, 888, 477, 9, 26, "Print",ExpressionUUID->"4903b626-06f3-324a-8feb-7f8bb9554cb4"],
-Cell[37151, 899, 511, 10, 26, "Print",ExpressionUUID->"ba311636-b85b-7446-9873-da3da00aee4f"]
+Cell[576, 22, 49336, 1062, 3953, "Input",ExpressionUUID->"abb37261-e3cc-464b-abea-40502ce93d5c"],
+Cell[49915, 1086, 2355, 34, 31, "Output",ExpressionUUID->"db11225e-ff2e-0a46-be09-28c7696129b1"],
+Cell[52273, 1122, 20648, 449, 1091, "Output",ExpressionUUID->"21bbe456-d929-3741-b2f4-df30056c2cc7"]
 }, Open  ]],
-Cell[37677, 912, 12059, 270, 752, "Output",ExpressionUUID->"d254c68c-1c25-c045-9d10-a4859e3b1781"]
-}, Open  ]],
-Cell[49751, 1185, 175, 3, 47, "Input",ExpressionUUID->"c2561e82-3f4a-fc47-8085-38b671f6b222"]
+Cell[72936, 1574, 175, 3, 47, "Input",ExpressionUUID->"c2561e82-3f4a-fc47-8085-38b671f6b222"],
+Cell[73114, 1579, 195, 3, 47, "Input",ExpressionUUID->"902395e1-9e33-8e40-a798-6045f676635d"],
+Cell[73312, 1584, 180, 4, 27, "Input",ExpressionUUID->"a43d47e6-07c1-bc4f-b087-709f67fe9281"]
 }
 ]
 *)

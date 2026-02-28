@@ -27,3 +27,5 @@ This interface allows the user to:
 - Choose tree-level or one-loop topologies
 - Automatically generate Feynman diagrams
 - Visualize them directly in Mathematica
+- Export them to pdf.
+- Automatically generate the amplitude.

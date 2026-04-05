@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[    222463,       4733]
-NotebookOptionsPosition[    220351,       4697]
-NotebookOutlinePosition[    220787,       4714]
-CellTagsIndexPosition[    220744,       4711]
+NotebookDataLength[    222578,       4736]
+NotebookOptionsPosition[    220501,       4701]
+NotebookOutlinePosition[    220902,       4717]
+CellTagsIndexPosition[    220859,       4714]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -22,8 +22,10 @@ Notebook[{
 Cell[CellGroupData[{
 Cell[BoxData[{
  RowBox[{
-  RowBox[{"$LoadAddOns", "=", 
-   RowBox[{"{", "\"\<FeynArts\>\"", "}"}]}], ";"}], "\n", 
+  RowBox[{
+   RowBox[{"$LoadAddOns", "=", 
+    RowBox[{"{", "\"\<FeynArts\>\"", "}"}]}], ";"}], 
+  RowBox[{"(*", "hola", "*)"}]}], "\n", 
  RowBox[{
   RowBox[{"<<", "FeynCalc`"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
@@ -207,7 +209,7 @@ FeynCalc\\\\FeynArts\\\\Models\>\"", "]"}]}], ";"}],
           RowBox[{"U", "[", "32", "]"}], "->", "\"\<ghWm\>\""}], ",", " ", 
          RowBox[{
           RowBox[{"U", "[", "4", "]"}], "->", "\"\<ghG\>\""}]}], "}"}]}]}], 
-     "|>"}]}], ";"}], "\n"}], "\[IndentingNewLine]", 
+     "|>"}]}], ";"}], "\[IndentingNewLine]"}], "\n", 
  RowBox[{
   RowBox[{
    RowBox[{
@@ -224,7 +226,7 @@ FeynCalc\\\\FeynArts\\\\Models\>\"", "]"}]}], ";"}],
            RowBox[{"[", "2", "]"}], "]"}]}], ")"}], "&"}], "/@", 
        RowBox[{"particleCatalog", "[", "cat", "]"}]}], ",", 
       RowBox[{"\"\<\[LongDash]\>\"", "->", "None"}]}], "]"}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\n", 
+  "\n"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"ClearAll", "[", "DiagramUIManualCatalog", "]"}], ";"}], 
@@ -269,7 +271,8 @@ FeynCalc\\\\FeynArts\\\\Models\>\"", "]"}]}], ";"}],
            RowBox[{"prints", "[", 
             RowBox[{"[", 
              RowBox[{"2", ",", "1"}], "]"}], "]"}], ",", 
-           RowBox[{"{", "}"}]}], "]"}]}], "}"}]}]}], "]"}]}], ";"}], "\n"}], "\[IndentingNewLine]", 
+           RowBox[{"{", "}"}]}], "]"}]}], "}"}]}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\n", 
  RowBox[{
   RowBox[{"ClearAll", "[", "quietEval", "]"}], ";"}], "\n", 
  RowBox[{
@@ -355,8 +358,7 @@ FeynCalc\\\\FeynArts\\\\Models\\\\\\\\SMEFTsimtopU3l.pars\>\"", "]"}],
   RowBox[{"useEWLeptonRules", "=", "False"}], ";"}], "\n", 
  RowBox[{
   RowBox[{
-   RowBox[{"useLinearWCRules", "=", "False"}], ";"}], 
-  "\[IndentingNewLine]"}], "\n", 
+   RowBox[{"useLinearWCRules", "=", "False"}], ";"}], "\n"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{
@@ -1567,9 +1569,9 @@ primero).\>\"", ",", "Red"}], "]"}]}], ";", "\[IndentingNewLine]",
    3.983096213246826*^9}, {3.983096262646702*^9, 3.983096292621809*^9}, {
    3.9830964222623386`*^9, 3.9830964304657516`*^9}, {3.983096671684515*^9, 
    3.983096684280773*^9}, {3.9830968106770573`*^9, 3.9830968908963547`*^9}, 
-   3.983097112892889*^9, 3.98309869951865*^9},
- CellLabel->
-  "In[284]:=",ExpressionUUID->"abb37261-e3cc-464b-abea-40502ce93d5c"],
+   3.983097112892889*^9, 3.98309869951865*^9, {3.9844053966712456`*^9, 
+   3.9844054015966167`*^9}},ExpressionUUID->"abb37261-e3cc-464b-abea-\
+40502ce93d5c"],
 
 Cell[BoxData[
  FormBox["$Aborted", TraditionalForm]], "Output",
@@ -2109,9 +2111,9 @@ $CellContext`cHDD $CellContext`vevhat^2 $CellContext`yt) FeynArts`IndexDelta[
      FeynArts`GraphID[
      FeynArts`Topology == 2, Generic == 2, FeynArts`Particles == 1, Number == 
       3], 
-     Integral[], -$CellContext`FAMetricTensor[
-       FeynArts`Index[$CellContext`Lorentz, 1], 
-       FeynArts`Index[$CellContext`Lorentz, 2]] 
+     Integral[], (-$CellContext`FAMetricTensor[
+        FeynArts`Index[$CellContext`Lorentz, 1], 
+        FeynArts`Index[$CellContext`Lorentz, 2]]) 
      FeynArts`FAPropagatorDenominator[
       FeynArts`FourMomentum[FeynArts`Outgoing, 1] + 
        FeynArts`FourMomentum[FeynArts`Outgoing, 2], 0] FeynArts`SumOver[
@@ -2219,7 +2221,7 @@ $CellContext`yl[1, 1] FeynArts`DiracObject[
         FeynArts`Index[$CellContext`Dirac, 1]]) (Complex[0, 
          Rational[
          2, 3]] $CellContext`cth^(-1) $CellContext`LambdaSMEFT^(-2) \
-(-$CellContext`cth $CellContext`LambdaSMEFT^2 (
+((-$CellContext`cth) $CellContext`LambdaSMEFT^2 (
           1 + $CellContext`dg1 - $CellContext`dg1 $CellContext`sth^2 + \
 $CellContext`dgw $CellContext`sth^2) - $CellContext`cHWB $CellContext`sth (-1 + \
 $CellContext`sth^2) $CellContext`vevhat^2) FeynCalc`FCGV["EL"] 
@@ -2233,7 +2235,7 @@ $CellContext`sth^2) $CellContext`vevhat^2) FeynCalc`FCGV["EL"]
          FeynArts`Index[$CellContext`Dirac, 4]] + Complex[0, 
          Rational[
          2, 3]] $CellContext`cth^(-1) $CellContext`LambdaSMEFT^(-2) \
-(-$CellContext`cth $CellContext`LambdaSMEFT^2 (
+((-$CellContext`cth) $CellContext`LambdaSMEFT^2 (
           1 + $CellContext`dg1 - $CellContext`dg1 $CellContext`sth^2 + \
 $CellContext`dgw $CellContext`sth^2) - $CellContext`cHWB $CellContext`sth (-1 + \
 $CellContext`sth^2) $CellContext`vevhat^2) FeynCalc`FCGV["EL"] 
@@ -2319,9 +2321,9 @@ $CellContext`vevhat FeynArts`IndexDelta[
      FeynArts`GraphID[
      FeynArts`Topology == 2, Generic == 2, FeynArts`Particles == 2, Number == 
       4], 
-     Integral[], -$CellContext`FAMetricTensor[
-       FeynArts`Index[$CellContext`Lorentz, 1], 
-       FeynArts`Index[$CellContext`Lorentz, 2]] 
+     Integral[], (-$CellContext`FAMetricTensor[
+        FeynArts`Index[$CellContext`Lorentz, 1], 
+        FeynArts`Index[$CellContext`Lorentz, 2]]) 
      FeynArts`FAPropagatorDenominator[
       FeynArts`FourMomentum[FeynArts`Outgoing, 1] + 
        FeynArts`FourMomentum[FeynArts`Outgoing, 2], 
@@ -3701,8 +3703,8 @@ $CellContext`sth^2) $CellContext`vevhat^2 FeynCalc`DiracChain[
          Grid[
           Table[
            
-           With[{$CellContext`k$ = $CellContext`i}, {
-            "in[" <> ToString[$CellContext`k$] <> "]", 
+           With[{$CellContext`k$ = $CellContext`i}, {("in[" <> 
+              ToString[$CellContext`k$]) <> "]", 
              PopupMenu[
               Dynamic[
                Part[$CellContext`catInList$$, $CellContext`k$], (
@@ -3718,7 +3720,8 @@ $CellContext`sth^2) $CellContext`vevhat^2 FeynCalc`DiracChain[
                Part[$CellContext`catInList$$, $CellContext`k$]], FieldSize -> 
               45]}], {$CellContext`i, 1, $CellContext`nIn$$}], Alignment -> 
           Left, Spacings -> {1.5, 1}], TraditionalForm],
-        ImageSizeCache->{645.9350255012512, {30.791015625, 36.9609375}},
+        ImageSizeCache->{
+         901.9966464334477, {15.247069965302945`, 21.416991840302945`}},
         TrackedSymbols:>{$CellContext`nIn$$, $CellContext`catInList$$, \
 $CellContext`pickIn$$}]},
       {
@@ -3734,8 +3737,8 @@ $CellContext`pickIn$$}]},
          Grid[
           Table[
            
-           With[{$CellContext`k$ = $CellContext`i}, {
-            "out[" <> ToString[$CellContext`k$] <> "]", 
+           With[{$CellContext`k$ = $CellContext`i}, {("out[" <> 
+              ToString[$CellContext`k$]) <> "]", 
              PopupMenu[
               Dynamic[
                Part[$CellContext`catOutList$$, $CellContext`k$], (
@@ -3751,7 +3754,8 @@ $CellContext`pickIn$$}]},
                Part[$CellContext`catOutList$$, $CellContext`k$]], FieldSize -> 
               45]}], {$CellContext`i, 1, $CellContext`nOut$$}], Alignment -> 
           Left, Spacings -> {1.5, 1}], TraditionalForm],
-        ImageSizeCache->{652.4540682680905, {30.791015625, 36.9609375}},
+        ImageSizeCache->{
+         873.3267246426393, {15.247069965302945`, 21.416991840302945`}},
         TrackedSymbols:>{$CellContext`nOut$$, $CellContext`catOutList$$, \
 $CellContext`pickOut$$}]},
       {
@@ -3890,7 +3894,7 @@ $CellContext`paintImg$$ = None]; $CellContext`statusDiag$$ =
              Take[$CellContext`pickOut$$, $CellContext`nOut$$], InputForm]}], 
          TraditionalForm],
         ImageSizeCache->{
-         134.8998996734619, {19.863085416704415`, 26.033007291704415`}},
+         240.33446674346928`, {19.863085416704415`, 26.033007291704415`}},
         TrackedSymbols:>{$CellContext`pickIn$$, $CellContext`pickOut$$, \
 $CellContext`nIn$$, $CellContext`nOut$$}]},
       {
@@ -4695,9 +4699,8 @@ Cell[BoxData[
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1152, 579.6},
-WindowMargins->{{
-  Automatic, -5.399999999999864}, {-5.399999999999977, Automatic}},
+WindowSize->{1141.2, 573.6},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
 FrontEndVersion->"14.3 para Microsoft Windows (64-bit) (July 8, 2025)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"f5df74ed-f9a6-cf47-8be1-f07fc16d20e8"
@@ -4714,25 +4717,25 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[576, 22, 73418, 1549, 5627, "Input",ExpressionUUID->"abb37261-e3cc-464b-abea-40502ce93d5c"],
-Cell[73997, 1573, 1272, 19, 31, "Output",ExpressionUUID->"a7b2bc21-3016-0746-9110-6bb6c8a0c851"],
-Cell[75272, 1594, 122210, 2559, 1162, "Output",ExpressionUUID->"04e4c743-14eb-df40-a2b4-e233ca9ee5ed"],
+Cell[576, 22, 73494, 1551, 5646, "Input",ExpressionUUID->"abb37261-e3cc-464b-abea-40502ce93d5c"],
+Cell[74073, 1575, 1272, 19, 31, "Output",ExpressionUUID->"a7b2bc21-3016-0746-9110-6bb6c8a0c851"],
+Cell[75348, 1596, 122284, 2561, 1100, "Output",ExpressionUUID->"04e4c743-14eb-df40-a2b4-e233ca9ee5ed"],
 Cell[CellGroupData[{
-Cell[197507, 4157, 175, 3, 21, "Print",ExpressionUUID->"4efff556-ccac-5741-b23a-591655a282ec"],
-Cell[197685, 4162, 379, 8, 21, "Print",ExpressionUUID->"f6fa2bae-cb59-0d46-b6db-c276fe6144d8"],
-Cell[198067, 4172, 425, 9, 21, "Print",ExpressionUUID->"060a6e95-bd49-c141-98e2-a85155b2d40a"],
-Cell[198495, 4183, 426, 9, 21, "Print",ExpressionUUID->"84ba57d7-581b-864c-97d0-df39dbbe8785"],
-Cell[198924, 4194, 427, 9, 21, "Print",ExpressionUUID->"6f71fd5e-91d3-5d44-a6ab-9f9ad3df4a57"],
-Cell[199354, 4205, 429, 9, 21, "Print",ExpressionUUID->"6137106e-6ed8-fa41-af5a-9f223d9aaee4"],
-Cell[199786, 4216, 360, 8, 21, "Print",ExpressionUUID->"ef09a227-80ae-8c4d-bd7a-3b675dfb91c9"],
-Cell[200149, 4226, 522, 11, 21, "Print",ExpressionUUID->"05748c32-bd1e-8d46-a6a9-870af533eddf"],
-Cell[200674, 4239, 525, 11, 21, "Print",ExpressionUUID->"ec74d7c2-c5d0-aa4d-9830-45edbad8a59c"],
-Cell[201202, 4252, 17322, 394, 808, "Print",ExpressionUUID->"8c45544e-769f-e243-aa8c-100644b78fda"],
-Cell[218527, 4648, 175, 3, 21, "Print",ExpressionUUID->"0f26a359-45c0-8c43-a4e4-05f11bef6465"],
-Cell[218705, 4653, 399, 8, 21, "Print",ExpressionUUID->"f30e9623-fc41-ae4d-9620-4cce116b217b"],
-Cell[219107, 4663, 425, 9, 21, "Print",ExpressionUUID->"69016508-3d99-5d45-8c30-e2d2b1553144"],
-Cell[219535, 4674, 427, 9, 21, "Print",ExpressionUUID->"b13856da-fda3-4241-b911-ba476b466f0a"],
-Cell[219965, 4685, 358, 8, 21, "Print",ExpressionUUID->"6bd97947-950c-7245-9b55-04b2c819bc1d"]
+Cell[197657, 4161, 175, 3, 21, "Print",ExpressionUUID->"4efff556-ccac-5741-b23a-591655a282ec"],
+Cell[197835, 4166, 379, 8, 21, "Print",ExpressionUUID->"f6fa2bae-cb59-0d46-b6db-c276fe6144d8"],
+Cell[198217, 4176, 425, 9, 21, "Print",ExpressionUUID->"060a6e95-bd49-c141-98e2-a85155b2d40a"],
+Cell[198645, 4187, 426, 9, 21, "Print",ExpressionUUID->"84ba57d7-581b-864c-97d0-df39dbbe8785"],
+Cell[199074, 4198, 427, 9, 21, "Print",ExpressionUUID->"6f71fd5e-91d3-5d44-a6ab-9f9ad3df4a57"],
+Cell[199504, 4209, 429, 9, 21, "Print",ExpressionUUID->"6137106e-6ed8-fa41-af5a-9f223d9aaee4"],
+Cell[199936, 4220, 360, 8, 21, "Print",ExpressionUUID->"ef09a227-80ae-8c4d-bd7a-3b675dfb91c9"],
+Cell[200299, 4230, 522, 11, 21, "Print",ExpressionUUID->"05748c32-bd1e-8d46-a6a9-870af533eddf"],
+Cell[200824, 4243, 525, 11, 21, "Print",ExpressionUUID->"ec74d7c2-c5d0-aa4d-9830-45edbad8a59c"],
+Cell[201352, 4256, 17322, 394, 808, "Print",ExpressionUUID->"8c45544e-769f-e243-aa8c-100644b78fda"],
+Cell[218677, 4652, 175, 3, 21, "Print",ExpressionUUID->"0f26a359-45c0-8c43-a4e4-05f11bef6465"],
+Cell[218855, 4657, 399, 8, 21, "Print",ExpressionUUID->"f30e9623-fc41-ae4d-9620-4cce116b217b"],
+Cell[219257, 4667, 425, 9, 21, "Print",ExpressionUUID->"69016508-3d99-5d45-8c30-e2d2b1553144"],
+Cell[219685, 4678, 427, 9, 21, "Print",ExpressionUUID->"b13856da-fda3-4241-b911-ba476b466f0a"],
+Cell[220115, 4689, 358, 8, 21, "Print",ExpressionUUID->"6bd97947-950c-7245-9b55-04b2c819bc1d"]
 }, Open  ]]
 }, Open  ]]
 }
